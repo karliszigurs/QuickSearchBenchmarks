@@ -3,10 +3,7 @@ package com.zigurs.karlis.utils.search.bench;
 import com.zigurs.karlis.utils.search.PartialSorter;
 import org.openjdk.jmh.annotations.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -19,96 +16,165 @@ import java.util.stream.Collectors;
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
 public class SortOperations {
 
-    private List<Map.Entry<String, Double>> testList = new ArrayList<>();
+    private final Comparator<Map.Entry<String, Double>> normalReverseComparator = (o1, o2) -> -o1.getValue().compareTo(o2.getValue());
+    private final Comparator<Map.Entry<String, Double>> eagerDiscardComparator = (o1, o2) -> o1.getValue().compareTo(o2.getValue()) < 0 ? 1 : -1;
 
-    @Param({"100", "1000", "10000", "100000"})
-    private int listSize;
+    @State(Scope.Thread)
+    public static class ListWrapper {
 
-    @Param({"1", "10", "1000"})
-    private int maxItems;
+        private final List<Map.Entry<String, Double>> testList = new ArrayList<>();
 
-    @Setup
-    public void setup() {
-        for (int i = 1; i <= listSize; i++) {
-            final String key = String.format("Item-%d", i);
-            final Double value = (double) i;
+        @Param({"100", "1000", "10000", "100000"})
+        private int listSize;
 
-            testList.add(new Map.Entry<String, Double>() {
-                @Override
-                public String getKey() {
-                    return key;
-                }
+        @Param({"1", "10", "1000"})
+        private int maxItems;
 
-                @Override
-                public Double getValue() {
-                    return value;
-                }
+        /*
+         * Weird. The constructor isn't invoked?
+         */
 
-                @Override
-                public Double setValue(Double value) {
-                    throw new UnsupportedOperationException("Not allowed");
-                }
-            });
+
+        /*
+         * Re-shuffle the list for every benchmark call.
+         *
+         * Expensive, but fair.
+         */
+        @Setup(Level.Invocation)
+        public void setup() {
+            if (testList.isEmpty())
+                populateList();
+            Collections.shuffle(testList);
+        }
+
+        private void populateList() {
+            for (int i = 1; i <= listSize; i++) {
+                final String key = String.format("Item-%d", i);
+                final Double value = (double) i;
+
+                testList.add(new Map.Entry<String, Double>() {
+                    @Override
+                    public String getKey() {
+                        return key;
+                    }
+
+                    @Override
+                    public Double getValue() {
+                        return value;
+                    }
+
+                    @Override
+                    public Double setValue(Double value) {
+                        throw new UnsupportedOperationException("Not allowed");
+                    }
+                });
+            }
         }
     }
 
     @Benchmark
-    public boolean partialSort() {
-        List<Map.Entry<String, Double>> list = PartialSorter.sortAndLimit(getListCopy(), maxItems, Map.Entry.comparingByValue());
+    public boolean partialSort(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = PartialSorter.sortAndLimit(
+                wrapper.testList,
+                wrapper.maxItems,
+                normalReverseComparator
+        );
 
-        if (list.get(0).getValue() != 1.0)
+        if (list.get(0).getValue() != wrapper.listSize)
             throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
 
         return true;
     }
 
     @Benchmark
-    public boolean collectionsSort() {
-        List<Map.Entry<String, Double>> list = getListCopy();
-        Collections.sort(list, Map.Entry.comparingByValue());
+    public boolean partialSortEagerDiscard(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = PartialSorter.sortAndLimit(
+                wrapper.testList,
+                wrapper.maxItems,
+                eagerDiscardComparator
+        );
 
-        list = list.subList(0, Math.min(list.size(), maxItems));
-
-        if (list.get(0).getValue() != 1.0)
+        if (list.get(0).getValue() != wrapper.listSize)
             throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
 
         return true;
     }
 
     @Benchmark
-    public boolean streamSort() {
-        List<Map.Entry<String, Double>> list = getListCopy().stream()
-                .sorted(Map.Entry.comparingByValue())
-                .limit(maxItems)
+    public boolean collectionsSort(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = wrapper.testList;
+        Collections.sort(list, normalReverseComparator);
+
+        list = list.subList(0, Math.min(list.size(), wrapper.maxItems));
+
+        if (list.get(0).getValue() != wrapper.listSize)
+            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
+
+        return true;
+    }
+
+    @Benchmark
+    public boolean collectionsSortEagerDiscard(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = wrapper.testList;
+        Collections.sort(list, eagerDiscardComparator);
+
+        list = list.subList(0, Math.min(list.size(), wrapper.maxItems));
+
+        if (list.get(0).getValue() != wrapper.listSize)
+            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
+
+        return true;
+    }
+
+    @Benchmark
+    public boolean streamSort(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = wrapper.testList.stream()
+                .sorted(normalReverseComparator)
+                .limit(wrapper.maxItems)
                 .collect(Collectors.toList());
 
-        if (list.get(0).getValue() != 1.0)
+        if (list.get(0).getValue() != wrapper.listSize)
             throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
 
         return true;
     }
 
     @Benchmark
-    public boolean parallelSort() {
-        List<Map.Entry<String, Double>> list = getListCopy().parallelStream()
-                .sorted(Map.Entry.comparingByValue())
-                .limit(maxItems)
+    public boolean streamSortEagerDiscard(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = wrapper.testList.stream()
+                .sorted(eagerDiscardComparator)
+                .limit(wrapper.maxItems)
                 .collect(Collectors.toList());
 
-        if (list.get(0).getValue() != 1.0)
+        if (list.get(0).getValue() != wrapper.listSize)
             throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
 
         return true;
     }
 
     @Benchmark
-    public boolean listCopyCost() {
-        return getListCopy().stream().findFirst().isPresent();
+    public boolean parallelSort(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = wrapper.testList.parallelStream()
+                .sorted(normalReverseComparator)
+                .limit(wrapper.maxItems)
+                .collect(Collectors.toList());
+
+        if (list.get(0).getValue() != wrapper.listSize)
+            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
+
+        return true;
     }
 
-    private List<Map.Entry<String, Double>> getListCopy() {
-        List<Map.Entry<String, Double>> listCopy = new ArrayList<>(testList);
-        Collections.shuffle(listCopy);
-        return listCopy;
+    @Benchmark
+    public boolean parallelSortEagerDiscard(ListWrapper wrapper) {
+        List<Map.Entry<String, Double>> list = wrapper.testList.parallelStream()
+                .sorted(eagerDiscardComparator)
+                .limit(wrapper.maxItems)
+                .collect(Collectors.toList());
+
+        if (list.get(0).getValue() != wrapper.listSize)
+            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
+
+        return true;
     }
 }
