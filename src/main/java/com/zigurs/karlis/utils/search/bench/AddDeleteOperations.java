@@ -9,28 +9,31 @@ import java.util.concurrent.TimeUnit;
 @Fork(CommonParams.FORKS)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
-@State(Scope.Benchmark)
 @Warmup(iterations = CommonParams.WARMUP_ITERATIONS, time = CommonParams.WARMUP_TIME, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
 public class AddDeleteOperations {
 
-    private QuickSearch<String> searchInstance;
+    @State(Scope.Benchmark)
+    public static class SearchWrapper {
+        private QuickSearch<String> searchInstance;
 
-    private int counter;
+        private int counter;
 
-    @Setup
-    public void setup() {
-        this.searchInstance = QuickSearch.builder().build();
+        @Setup
+        public void setup() {
+            this.searchInstance = QuickSearch.builder().build();
+        }
     }
 
     @Benchmark
-    public void addAndRemove() {
-        String item = String.format("Item%d", counter);
-        String keywords = String.format("cat%d dog%d", counter, counter++);
+    public void addAndRemove(SearchWrapper wrapper) {
+        String item = String.format("Item-%d", wrapper.counter);
+        String keywords = String.format("cat%d dog%d", wrapper.counter, wrapper.counter++);
 
-        if (!searchInstance.addItem(item, keywords))
+        if (!wrapper.searchInstance.addItem(item, keywords))
             throw new IllegalStateException("Couldn't add item");
 
-        searchInstance.removeItem(new String(item)); // Purposefully create new String instance
+        // Purposefully create new String instance
+        wrapper.searchInstance.removeItem(new String(item));
     }
 }

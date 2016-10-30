@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-@Threads(1)
+@Threads(1) /* leave cores unused for parallel sort to have free space */
 @Fork(CommonParams.FORKS)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
@@ -17,34 +17,33 @@ import java.util.stream.Collectors;
 public class SortOperations {
 
     private final Comparator<Map.Entry<String, Double>> normalReverseComparator = (o1, o2) -> -o1.getValue().compareTo(o2.getValue());
-    private final Comparator<Map.Entry<String, Double>> eagerDiscardComparator = (o1, o2) -> o1.getValue().compareTo(o2.getValue()) < 0 ? 1 : -1;
 
-    @State(Scope.Thread)
+    @State(Scope.Benchmark)
     public static class ListWrapper {
 
         private final List<Map.Entry<String, Double>> testList = new ArrayList<>();
 
-        @Param({"100", "1000", "10000", "100000"})
+        @Param({"100", "1000", "10000", "100000", "1000000"})
         private int listSize;
 
         @Param({"1", "10", "1000"})
         private int maxItems;
 
-        /*
-         * Weird. The constructor isn't invoked?
-         */
-
-
-        /*
-         * Re-shuffle the list for every benchmark call.
-         *
-         * Expensive, but fair.
-         */
-        @Setup(Level.Invocation)
+        @Setup
         public void setup() {
-            if (testList.isEmpty())
+            /*
+             * Workaround for listSize/maxItems variables not being
+             * ready at the call to constructor time.
+             *
+             * It does make sense, one I think about it. They are sorted out
+             * once the instance exists.
+             *
+             * Yes, it did confuse me for a second.
+             */
+            if (testList.isEmpty()) {
                 populateList();
-            Collections.shuffle(testList);
+                Collections.shuffle(testList);
+            }
         }
 
         private void populateList() {
@@ -87,36 +86,9 @@ public class SortOperations {
     }
 
     @Benchmark
-    public boolean partialSortEagerDiscard(ListWrapper wrapper) {
-        List<Map.Entry<String, Double>> list = PartialSorter.sortAndLimit(
-                wrapper.testList,
-                wrapper.maxItems,
-                eagerDiscardComparator
-        );
-
-        if (list.get(0).getValue() != wrapper.listSize)
-            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
-
-        return true;
-    }
-
-    @Benchmark
     public boolean collectionsSort(ListWrapper wrapper) {
-        List<Map.Entry<String, Double>> list = wrapper.testList;
+        List<Map.Entry<String, Double>> list = new ArrayList<>(wrapper.testList);
         Collections.sort(list, normalReverseComparator);
-
-        list = list.subList(0, Math.min(list.size(), wrapper.maxItems));
-
-        if (list.get(0).getValue() != wrapper.listSize)
-            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
-
-        return true;
-    }
-
-    @Benchmark
-    public boolean collectionsSortEagerDiscard(ListWrapper wrapper) {
-        List<Map.Entry<String, Double>> list = wrapper.testList;
-        Collections.sort(list, eagerDiscardComparator);
 
         list = list.subList(0, Math.min(list.size(), wrapper.maxItems));
 
@@ -140,35 +112,9 @@ public class SortOperations {
     }
 
     @Benchmark
-    public boolean streamSortEagerDiscard(ListWrapper wrapper) {
-        List<Map.Entry<String, Double>> list = wrapper.testList.stream()
-                .sorted(eagerDiscardComparator)
-                .limit(wrapper.maxItems)
-                .collect(Collectors.toList());
-
-        if (list.get(0).getValue() != wrapper.listSize)
-            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
-
-        return true;
-    }
-
-    @Benchmark
     public boolean parallelSort(ListWrapper wrapper) {
         List<Map.Entry<String, Double>> list = wrapper.testList.parallelStream()
                 .sorted(normalReverseComparator)
-                .limit(wrapper.maxItems)
-                .collect(Collectors.toList());
-
-        if (list.get(0).getValue() != wrapper.listSize)
-            throw new IllegalStateException("Unexpected sort result: " + list.get(0).getValue());
-
-        return true;
-    }
-
-    @Benchmark
-    public boolean parallelSortEagerDiscard(ListWrapper wrapper) {
-        List<Map.Entry<String, Double>> list = wrapper.testList.parallelStream()
-                .sorted(eagerDiscardComparator)
                 .limit(wrapper.maxItems)
                 .collect(Collectors.toList());
 
