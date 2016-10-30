@@ -1,0 +1,10 @@
+Benchmark,Param: cacheSize,Score
+com.zigurs.karlis.utils.search.bench.MixedOperations.w,-1,"124,908.73"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w,0,"123,271.87"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w,1024,"120,480.20"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w:read,-1,"93,716.88"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w:read,0,"91,692.36"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w:read,1024,"89,110.03"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w:addAndRemove,0,"31,579.51"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w:addAndRemove,1024,"31,370.17"
+com.zigurs.karlis.utils.search.bench.MixedOperations.w:addAndRemove,-1,"31,191.84"
