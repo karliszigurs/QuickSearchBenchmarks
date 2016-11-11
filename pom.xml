@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.zigurs.karlis.utils.search</groupId>
-            <artifactId>quicksearch</artifactId>
+            <artifactId>QuickSearch</artifactId>
             <version>1.7-SNAPSHOT</version>
         </dependency>
 
