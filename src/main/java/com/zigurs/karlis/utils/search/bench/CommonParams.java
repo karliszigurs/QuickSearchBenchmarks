@@ -6,11 +6,11 @@ public class CommonParams {
      * Benchmark configuration
      */
 
-    public static final int WARMUP_ITERATIONS = 5;
-    public static final int WARMUP_TIME = 5;
-    public static final int BENCHMARK_ITERATIONS = 5;
+    public static final int WARMUP_ITERATIONS = 3;
+    public static final int WARMUP_TIME = 3;
+    public static final int BENCHMARK_ITERATIONS = 3;
     public static final int BENCHMARK_TIME = 10;
-    public static final int FORKS = 5;
+    public static final int FORKS = 3;
 
     /*
      * Simple dataset

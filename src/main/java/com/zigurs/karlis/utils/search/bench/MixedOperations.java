@@ -6,9 +6,9 @@ import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.concurrent.TimeUnit;
 
-@Fork(CommonParams.FORKS)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
+@Fork(value = CommonParams.FORKS, jvmArgsAppend = {"-XX:+UseParallelGC", "-Xms4g", "-Xmx4g"})
 @Warmup(iterations = CommonParams.WARMUP_ITERATIONS, time = CommonParams.WARMUP_TIME, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
 public class MixedOperations {
@@ -28,7 +28,7 @@ public class MixedOperations {
         }
     }
 
-    @Group("w")
+    @Group("rw")
     @GroupThreads(1)
     @Benchmark
     public boolean addAndRemove(SearchWrapper wrapper, Blackhole blackhole) {
@@ -37,8 +37,8 @@ public class MixedOperations {
         return true;
     }
 
-    @Group("w")
-    @GroupThreads(7)
+    @Group("rw")
+    @GroupThreads(1)
     @Benchmark
     public boolean read(SearchWrapper wrapper) {
         return wrapper.searchInstance.findItems("item", 10).isEmpty();

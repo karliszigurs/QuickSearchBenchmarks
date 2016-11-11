@@ -4,7 +4,7 @@
 
     <groupId>com.zigurs.karlis.utils.search.bench</groupId>
     <artifactId>QuickSearchBenchmarks</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>QuickSearch JMH benchmarks</name>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.zigurs.karlis.utils.search</groupId>
             <artifactId>quicksearch</artifactId>
-            <version>1.6</version>
+            <version>1.7-SNAPSHOT</version>
         </dependency>
 
         <dependency>

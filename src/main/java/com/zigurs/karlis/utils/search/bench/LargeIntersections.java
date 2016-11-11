@@ -9,12 +9,12 @@ import java.util.concurrent.TimeUnit;
 import static com.zigurs.karlis.utils.search.bench.CommonParams.USA_STATES;
 
 @Threads(1)
-@BenchmarkMode(Mode.Throughput)
-@OutputTimeUnit(TimeUnit.SECONDS)
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Fork(value = CommonParams.FORKS, jvmArgsAppend = {"-XX:+UseParallelGC", "-Xms4g", "-Xmx4g"})
 @Warmup(iterations = CommonParams.WARMUP_ITERATIONS, time = CommonParams.WARMUP_TIME, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
-public class ReadOnlyOperations {
+public class LargeIntersections {
 
     @State(Scope.Benchmark)
     public static class SearchWrapper {
@@ -27,18 +27,30 @@ public class ReadOnlyOperations {
         @Param({"EXACT", "BACKTRACKING"})
         private QuickSearch.UNMATCHED_POLICY unmatchedPolicy;
 
-        @Param({"", "nosuchstring", "washington", "wa sh", "a b c d e", "a b c d e g h i l m n p r s u v y"})
+        @Param({"wa sh", "a b c d e", "a b c d e g h i l m n p r s u v y"})
         private String searchString;
+
+        @Param({"true", "false"})
+        private boolean fjEnabled = false;
 
         private QuickSearch<String> searchInstance;
 
         @Setup
         public void setup() {
-            this.searchInstance = QuickSearch.builder()
-                    .withAccumulationPolicy(accumulationPolicy)
-                    .withUnmatchedPolicy(unmatchedPolicy)
-                    .withCacheLimit(cacheSize)
-                    .build();
+            if (fjEnabled)
+                this.searchInstance = QuickSearch.builder()
+                        .withAccumulationPolicy(accumulationPolicy)
+                        .withUnmatchedPolicy(unmatchedPolicy)
+                        .withCacheLimit(cacheSize)
+                        .withForkJoinProcessing()
+                        .build();
+
+            else
+                this.searchInstance = QuickSearch.builder()
+                        .withAccumulationPolicy(accumulationPolicy)
+                        .withUnmatchedPolicy(unmatchedPolicy)
+                        .withCacheLimit(cacheSize)
+                        .build();
 
             /* Populate search dataset */
             for (int i = 0; i < 1000; i++) {
