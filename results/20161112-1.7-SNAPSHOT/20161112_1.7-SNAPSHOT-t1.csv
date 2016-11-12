@@ -1,0 +1,203 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: accumulationPolicy","Param: cacheSize","Param: fjEnabled","Param: searchString","Param: unmatchedPolicy"
+"com.zigurs.karlis.utils.search.bench.AddDeleteOperations.addAndRemove","thrpt",1,9,25769.621931,2529.761622,"ops/s",,,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw","thrpt",2,9,322909.978918,26493.040917,"ops/s",,0,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw:addAndRemove","thrpt",2,9,107770.547121,8024.730533,"ops/s",,0,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw:read","thrpt",2,9,215139.431797,18607.009190,"ops/s",,0,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw","thrpt",2,9,319759.947842,42572.536042,"ops/s",,1024,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw:addAndRemove","thrpt",2,9,106575.747406,13609.514086,"ops/s",,1024,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw:read","thrpt",2,9,213184.200436,28981.116028,"ops/s",,1024,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw","thrpt",2,9,295082.842245,36637.154686,"ops/s",,-1,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw:addAndRemove","thrpt",2,9,98554.029214,11501.456304,"ops/s",,-1,,,
+"com.zigurs.karlis.utils.search.bench.MixedOperations.rw:read","thrpt",2,9,196528.813031,25525.901673,"ops/s",,-1,,,
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,334271914.712179,4854220.176505,"ops/s",UNION,0,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,323195713.385197,22894178.725718,"ops/s",UNION,0,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,922663.542877,18589.385116,"ops/s",UNION,0,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,126489.389618,11445.323304,"ops/s",UNION,0,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,484671.376916,15567.796345,"ops/s",UNION,0,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,486100.564421,17281.208497,"ops/s",UNION,0,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,83436.842193,6277.250523,"ops/s",UNION,0,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,82534.985209,4929.423853,"ops/s",UNION,0,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2233.236631,112.773840,"ops/s",UNION,0,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2321.204020,63.026160,"ops/s",UNION,0,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,868.450624,24.193254,"ops/s",UNION,0,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,831.193838,34.548338,"ops/s",UNION,0,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,330578348.416096,8916194.426344,"ops/s",UNION,1024,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,328904873.406905,3274437.952254,"ops/s",UNION,1024,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,914712.013504,57580.185749,"ops/s",UNION,1024,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,129388.039713,4539.756051,"ops/s",UNION,1024,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,505204.449970,22206.189332,"ops/s",UNION,1024,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,502596.377503,20878.568899,"ops/s",UNION,1024,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,86467.535477,2904.699679,"ops/s",UNION,1024,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,83984.173162,4861.215581,"ops/s",UNION,1024,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2357.379106,66.595634,"ops/s",UNION,1024,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2379.421769,123.380705,"ops/s",UNION,1024,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,837.628005,53.246457,"ops/s",UNION,1024,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,853.148637,48.252620,"ops/s",UNION,1024,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,336222298.541706,9433005.878072,"ops/s",UNION,104857600,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,335296320.085421,5262654.377463,"ops/s",UNION,104857600,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,924546.990723,61741.057159,"ops/s",UNION,104857600,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,252696.716398,16540.316901,"ops/s",UNION,104857600,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,596904.677382,19506.809397,"ops/s",UNION,104857600,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,580272.630774,26695.211260,"ops/s",UNION,104857600,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,182709.948154,4148.863185,"ops/s",UNION,104857600,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,182352.956582,6661.508747,"ops/s",UNION,104857600,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,10142.890164,632.670980,"ops/s",UNION,104857600,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,10366.896769,874.818422,"ops/s",UNION,104857600,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,4067.900098,238.639189,"ops/s",UNION,104857600,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,4051.539952,94.250980,"ops/s",UNION,104857600,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,333234335.152175,7260160.440593,"ops/s",UNION,-1,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,331736359.972284,7024017.103673,"ops/s",UNION,-1,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,948332.270499,31641.913949,"ops/s",UNION,-1,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,248131.766765,7940.934625,"ops/s",UNION,-1,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,589357.132146,18700.392008,"ops/s",UNION,-1,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,578113.987108,16818.787272,"ops/s",UNION,-1,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,177305.894662,8302.086086,"ops/s",UNION,-1,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,176510.908064,13386.525366,"ops/s",UNION,-1,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,9849.326097,675.418940,"ops/s",UNION,-1,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,9925.897504,171.915616,"ops/s",UNION,-1,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,4049.328333,84.493723,"ops/s",UNION,-1,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,4071.754936,207.798552,"ops/s",UNION,-1,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,333947306.028047,5095942.942230,"ops/s",INTERSECTION,0,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,332288112.276982,6924021.258938,"ops/s",INTERSECTION,0,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,933474.234301,26310.164217,"ops/s",INTERSECTION,0,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,131708.632726,2975.524325,"ops/s",INTERSECTION,0,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,497534.505336,17461.898959,"ops/s",INTERSECTION,0,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,495503.611162,19317.365341,"ops/s",INTERSECTION,0,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,114151.862314,3618.507483,"ops/s",INTERSECTION,0,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,113141.973292,4429.186361,"ops/s",INTERSECTION,0,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2856.416722,76.688278,"ops/s",INTERSECTION,0,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2794.749963,214.693987,"ops/s",INTERSECTION,0,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,1017.752161,53.920052,"ops/s",INTERSECTION,0,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,1032.079639,50.040043,"ops/s",INTERSECTION,0,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,334878192.412884,12531986.286664,"ops/s",INTERSECTION,1024,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,332710716.469173,7056698.918866,"ops/s",INTERSECTION,1024,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,944648.342011,44517.565723,"ops/s",INTERSECTION,1024,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,125146.827128,6110.868664,"ops/s",INTERSECTION,1024,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,501976.250826,19944.491388,"ops/s",INTERSECTION,1024,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,490360.624774,9773.890006,"ops/s",INTERSECTION,1024,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,119565.622778,4879.993342,"ops/s",INTERSECTION,1024,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,118846.061200,5953.921784,"ops/s",INTERSECTION,1024,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2670.085881,160.143399,"ops/s",INTERSECTION,1024,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,2678.249155,103.069024,"ops/s",INTERSECTION,1024,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,1044.742616,37.920501,"ops/s",INTERSECTION,1024,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,1018.454596,58.738372,"ops/s",INTERSECTION,1024,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,319531673.036605,35837847.865598,"ops/s",INTERSECTION,104857600,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,321410369.836273,34302791.693034,"ops/s",INTERSECTION,104857600,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,882803.601355,44382.871196,"ops/s",INTERSECTION,104857600,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,252673.018293,9374.531603,"ops/s",INTERSECTION,104857600,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,573472.312487,17779.773384,"ops/s",INTERSECTION,104857600,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,581685.754865,25870.505876,"ops/s",INTERSECTION,104857600,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,335997.071482,9540.654750,"ops/s",INTERSECTION,104857600,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,332263.144820,20248.439323,"ops/s",INTERSECTION,104857600,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,14680.474328,993.317169,"ops/s",INTERSECTION,104857600,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,15019.587414,380.523963,"ops/s",INTERSECTION,104857600,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,11123.111739,552.120172,"ops/s",INTERSECTION,104857600,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,11380.941240,380.802124,"ops/s",INTERSECTION,104857600,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,321939682.458951,39279343.516774,"ops/s",INTERSECTION,-1,,,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,317700602.057473,21151158.425636,"ops/s",INTERSECTION,-1,,,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,911196.853412,52275.964266,"ops/s",INTERSECTION,-1,,nosuchstring,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,256105.934717,7202.823731,"ops/s",INTERSECTION,-1,,nosuchstring,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,579642.535461,27073.492123,"ops/s",INTERSECTION,-1,,washington,EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,586589.874223,14508.259724,"ops/s",INTERSECTION,-1,,washington,BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,337990.974740,5848.129048,"ops/s",INTERSECTION,-1,,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,326978.643882,17546.532428,"ops/s",INTERSECTION,-1,,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,14518.326734,1508.074281,"ops/s",INTERSECTION,-1,,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,14218.112325,640.920102,"ops/s",INTERSECTION,-1,,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,11030.478086,369.266221,"ops/s",INTERSECTION,-1,,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run","thrpt",1,9,11165.167287,422.170210,"ops/s",INTERSECTION,-1,,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,49.629078,1.951712,"us/op",UNION,0,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,49.857441,1.387775,"us/op",UNION,0,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,836.231308,34.335657,"us/op",UNION,0,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,838.661171,19.964485,"us/op",UNION,0,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1365.261022,19.178548,"us/op",UNION,0,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1367.168064,17.940058,"us/op",UNION,0,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,12.253904,0.301488,"us/op",UNION,0,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,12.040595,0.347390,"us/op",UNION,0,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,436.253464,19.991083,"us/op",UNION,0,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,431.073577,22.607248,"us/op",UNION,0,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1213.629444,50.659039,"us/op",UNION,0,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1185.219841,80.264360,"us/op",UNION,0,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,50.543069,1.973987,"us/op",UNION,1024,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,50.485405,1.464378,"us/op",UNION,1024,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,827.157403,45.715783,"us/op",UNION,1024,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,837.657095,13.722748,"us/op",UNION,1024,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1353.474325,16.604622,"us/op",UNION,1024,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1360.522296,9.559471,"us/op",UNION,1024,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,12.363823,0.380357,"us/op",UNION,1024,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,12.240172,0.299520,"us/op",UNION,1024,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,431.276268,15.111191,"us/op",UNION,1024,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,419.059337,16.800108,"us/op",UNION,1024,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1191.411061,59.908672,"us/op",UNION,1024,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1192.062250,65.839283,"us/op",UNION,1024,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,39.719577,1.931318,"us/op",UNION,104857600,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,39.991339,1.263555,"us/op",UNION,104857600,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,780.361653,44.793751,"us/op",UNION,104857600,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,788.162008,32.097050,"us/op",UNION,104857600,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1240.625355,13.381468,"us/op",UNION,104857600,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1224.562455,23.514399,"us/op",UNION,104857600,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,5.812468,0.317947,"us/op",UNION,104857600,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,5.732706,0.309104,"us/op",UNION,104857600,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,99.005203,5.605350,"us/op",UNION,104857600,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,100.611438,6.637593,"us/op",UNION,104857600,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,256.999041,8.546577,"us/op",UNION,104857600,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,249.456287,6.510099,"us/op",UNION,104857600,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,38.997047,1.043376,"us/op",UNION,-1,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,40.181448,0.970090,"us/op",UNION,-1,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,779.417847,82.442819,"us/op",UNION,-1,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,805.666826,18.403741,"us/op",UNION,-1,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1223.040481,29.719759,"us/op",UNION,-1,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1224.709955,18.115404,"us/op",UNION,-1,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,5.835194,0.199943,"us/op",UNION,-1,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,5.723793,0.315561,"us/op",UNION,-1,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,100.197293,3.729568,"us/op",UNION,-1,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,100.048122,5.004860,"us/op",UNION,-1,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,253.283220,8.018867,"us/op",UNION,-1,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,250.953908,11.697319,"us/op",UNION,-1,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,34.912500,0.682776,"us/op",INTERSECTION,0,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,35.488986,0.499678,"us/op",INTERSECTION,0,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,300.898303,2.407599,"us/op",INTERSECTION,0,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,298.253077,6.047570,"us/op",INTERSECTION,0,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,456.024802,8.255402,"us/op",INTERSECTION,0,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,455.252693,6.870400,"us/op",INTERSECTION,0,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,8.924903,0.189702,"us/op",INTERSECTION,0,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,8.745018,0.174493,"us/op",INTERSECTION,0,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,361.877899,9.658734,"us/op",INTERSECTION,0,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,351.870109,7.828476,"us/op",INTERSECTION,0,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,974.914324,48.557229,"us/op",INTERSECTION,0,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,960.481713,48.568656,"us/op",INTERSECTION,0,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,33.899123,0.440775,"us/op",INTERSECTION,1024,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,33.931789,0.875866,"us/op",INTERSECTION,1024,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,315.214040,8.605796,"us/op",INTERSECTION,1024,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,315.230707,4.663161,"us/op",INTERSECTION,1024,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,476.814420,8.401452,"us/op",INTERSECTION,1024,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,483.329818,10.700215,"us/op",INTERSECTION,1024,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,9.151591,0.211259,"us/op",INTERSECTION,1024,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,9.194767,0.266672,"us/op",INTERSECTION,1024,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,380.615981,8.630322,"us/op",INTERSECTION,1024,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,395.409699,23.545423,"us/op",INTERSECTION,1024,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1000.758925,31.521114,"us/op",INTERSECTION,1024,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,1003.557796,22.828016,"us/op",INTERSECTION,1024,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,25.835613,0.366788,"us/op",INTERSECTION,104857600,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,25.523983,0.361820,"us/op",INTERSECTION,104857600,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,154.458424,4.297865,"us/op",INTERSECTION,104857600,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,151.264519,6.341681,"us/op",INTERSECTION,104857600,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,172.154251,12.356171,"us/op",INTERSECTION,104857600,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,171.909579,3.935054,"us/op",INTERSECTION,104857600,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,3.075713,0.127891,"us/op",INTERSECTION,104857600,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,3.013164,0.097419,"us/op",INTERSECTION,104857600,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,70.203637,3.037785,"us/op",INTERSECTION,104857600,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,70.888998,4.281677,"us/op",INTERSECTION,104857600,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,93.440531,3.274996,"us/op",INTERSECTION,104857600,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,93.001100,2.479515,"us/op",INTERSECTION,104857600,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,25.172275,0.314881,"us/op",INTERSECTION,-1,true,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,25.202877,0.419134,"us/op",INTERSECTION,-1,true,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,150.689026,5.214290,"us/op",INTERSECTION,-1,true,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,152.144688,4.103169,"us/op",INTERSECTION,-1,true,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,163.522937,6.026686,"us/op",INTERSECTION,-1,true,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,176.959079,1.889879,"us/op",INTERSECTION,-1,true,"a b c d e g h i l m n p r s u v y",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,3.103707,0.116743,"us/op",INTERSECTION,-1,false,"wa sh",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,3.012734,0.144035,"us/op",INTERSECTION,-1,false,"wa sh",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,69.444194,4.097717,"us/op",INTERSECTION,-1,false,"a b c d e",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,67.965815,2.405257,"us/op",INTERSECTION,-1,false,"a b c d e",BACKTRACKING
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,88.846459,5.426909,"us/op",INTERSECTION,-1,false,"a b c d e g h i l m n p r s u v y",EXACT
+"com.zigurs.karlis.utils.search.bench.LargeIntersections.run","avgt",1,9,88.219747,1.804579,"us/op",INTERSECTION,-1,false,"a b c d e g h i l m n p r s u v y",BACKTRACKING
