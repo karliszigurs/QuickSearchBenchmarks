@@ -13,21 +13,6 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
 public class MixedOperations {
 
-    @State(Scope.Benchmark)
-    public static class SearchWrapper {
-        @Param({"0", "1024", "-1"})
-        private int cacheSize;
-
-        private QuickSearch<String> searchInstance;
-
-        @Setup
-        public void setup() {
-            this.searchInstance = QuickSearch.builder()
-                    .withCacheLimit(cacheSize)
-                    .build();
-        }
-    }
-
     @Group("rw")
     @GroupThreads(1)
     @Benchmark
@@ -42,5 +27,15 @@ public class MixedOperations {
     @Benchmark
     public boolean read(SearchWrapper wrapper) {
         return wrapper.searchInstance.findItems("item", 10).isEmpty();
+    }
+
+    @State(Scope.Benchmark)
+    public static class SearchWrapper {
+        private QuickSearch<String> searchInstance;
+
+        @Setup
+        public void setup() {
+            this.searchInstance = QuickSearch.builder().build();
+        }
     }
 }
