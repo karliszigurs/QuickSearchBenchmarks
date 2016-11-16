@@ -1,0 +1,2393 @@
+nohup: ignoring input
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.AddDeleteOperations.addAndRemove
+
+# Run progress: 0.00% complete, ETA 01:37:30
+# Fork: 1 of 3
+# Warmup Iteration   1: 30853.639 ops/s
+# Warmup Iteration   2: 28450.699 ops/s
+# Warmup Iteration   3: 27661.083 ops/s
+Iteration   1: 26224.966 ops/s
+Iteration   2: 26116.472 ops/s
+Iteration   3: 24993.522 ops/s
+
+# Run progress: 0.67% complete, ETA 01:37:34
+# Fork: 2 of 3
+# Warmup Iteration   1: 29101.413 ops/s
+# Warmup Iteration   2: 27837.669 ops/s
+# Warmup Iteration   3: 26340.670 ops/s
+Iteration   1: 24879.209 ops/s
+Iteration   2: 25572.758 ops/s
+Iteration   3: 25803.342 ops/s
+
+# Run progress: 1.33% complete, ETA 01:36:53
+# Fork: 3 of 3
+# Warmup Iteration   1: 30478.797 ops/s
+# Warmup Iteration   2: 27774.970 ops/s
+# Warmup Iteration   3: 25851.910 ops/s
+Iteration   1: 25434.069 ops/s
+Iteration   2: 25293.124 ops/s
+Iteration   3: 25653.255 ops/s
+
+
+Result "addAndRemove":
+  25552.302 ±(99.9%) 772.552 ops/s [Average]
+  (min, avg, max) = (24879.209, 25552.302, 26224.966), stdev = 459.733
+  CI (99.9%): [24779.750, 26324.854] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 2 threads (1 group; 1x "addAndRemove", 1x "read" in each group), will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.MixedOperations.rw
+
+# Run progress: 2.00% complete, ETA 01:36:13
+# Fork: 1 of 3
+# Warmup Iteration   1: 284083.970 ops/s
+# Warmup Iteration   2: 269205.160 ops/s
+# Warmup Iteration   3: 266640.454 ops/s
+Iteration   1: 288268.958 ops/s
+                 addAndRemove: 98816.907 ops/s
+                 read:         189452.051 ops/s
+
+Iteration   2: 310893.923 ops/s
+                 addAndRemove: 103800.558 ops/s
+                 read:         207093.364 ops/s
+
+Iteration   3: 316211.121 ops/s
+                 addAndRemove: 105509.861 ops/s
+                 read:         210701.260 ops/s
+
+
+# Run progress: 2.67% complete, ETA 01:35:37
+# Fork: 2 of 3
+# Warmup Iteration   1: 269825.377 ops/s
+# Warmup Iteration   2: 293269.467 ops/s
+# Warmup Iteration   3: 278689.096 ops/s
+Iteration   1: 275935.487 ops/s
+                 addAndRemove: 93232.214 ops/s
+                 read:         182703.273 ops/s
+
+Iteration   2: 320825.338 ops/s
+                 addAndRemove: 107493.351 ops/s
+                 read:         213331.987 ops/s
+
+Iteration   3: 292117.820 ops/s
+                 addAndRemove: 99037.407 ops/s
+                 read:         193080.413 ops/s
+
+
+# Run progress: 3.33% complete, ETA 01:34:58
+# Fork: 3 of 3
+# Warmup Iteration   1: 267524.765 ops/s
+# Warmup Iteration   2: 315794.576 ops/s
+# Warmup Iteration   3: 320497.296 ops/s
+Iteration   1: 298757.731 ops/s
+                 addAndRemove: 100148.952 ops/s
+                 read:         198608.779 ops/s
+
+Iteration   2: 330813.361 ops/s
+                 addAndRemove: 110202.144 ops/s
+                 read:         220611.216 ops/s
+
+Iteration   3: 318452.198 ops/s
+                 addAndRemove: 106662.131 ops/s
+                 read:         211790.067 ops/s
+
+
+
+Result "rw":
+  305808.437 ±(99.9%) 30188.657 ops/s [Average]
+  (min, avg, max) = (275935.487, 305808.437, 330813.361), stdev = 17964.785
+  CI (99.9%): [275619.781, 335997.094] (assumes normal distribution)
+
+Secondary result "addAndRemove":
+  102767.059 ±(99.9%) 8984.098 ops/s [Average]
+  (min, avg, max) = (93232.214, 102767.059, 110202.144), stdev = 5346.293
+  CI (99.9%): [93782.961, 111751.156] (assumes normal distribution)
+
+Secondary result "read":
+  203041.379 ±(99.9%) 21284.263 ops/s [Average]
+  (min, avg, max) = (182703.273, 203041.379, 220611.216), stdev = 12665.923
+  CI (99.9%): [181757.116, 224325.641] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = , unmatchedPolicy = EXACT)
+
+# Run progress: 4.00% complete, ETA 01:34:17
+# Fork: 1 of 3
+# Warmup Iteration   1: 241373558.448 ops/s
+# Warmup Iteration   2: 250812397.560 ops/s
+# Warmup Iteration   3: 296732536.657 ops/s
+Iteration   1: 294622902.701 ops/s
+Iteration   2: 297953606.615 ops/s
+Iteration   3: 295302178.275 ops/s
+
+# Run progress: 4.67% complete, ETA 01:33:41
+# Fork: 2 of 3
+# Warmup Iteration   1: 266529164.139 ops/s
+# Warmup Iteration   2: 265064834.683 ops/s
+# Warmup Iteration   3: 318106884.178 ops/s
+Iteration   1: 316313236.181 ops/s
+Iteration   2: 316360621.190 ops/s
+Iteration   3: 322210151.028 ops/s
+
+# Run progress: 5.33% complete, ETA 01:33:03
+# Fork: 3 of 3
+# Warmup Iteration   1: 244817853.623 ops/s
+# Warmup Iteration   2: 277300872.214 ops/s
+# Warmup Iteration   3: 326216807.641 ops/s
+Iteration   1: 315977851.630 ops/s
+Iteration   2: 316804822.010 ops/s
+Iteration   3: 319129720.870 ops/s
+
+
+Result "run":
+  310519454.500 ±(99.9%) 18693307.178 ops/s [Average]
+  (min, avg, max) = (294622902.701, 310519454.500, 322210151.028), stdev = 11124087.258
+  CI (99.9%): [291826147.322, 329212761.678] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = , unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 6.00% complete, ETA 01:32:24
+# Fork: 1 of 3
+# Warmup Iteration   1: 130317323.970 ops/s
+# Warmup Iteration   2: 133441621.099 ops/s
+# Warmup Iteration   3: 154435194.094 ops/s
+Iteration   1: 152463548.615 ops/s
+Iteration   2: 151090484.539 ops/s
+Iteration   3: 149376293.123 ops/s
+
+# Run progress: 6.67% complete, ETA 01:31:47
+# Fork: 2 of 3
+# Warmup Iteration   1: 251959928.226 ops/s
+# Warmup Iteration   2: 260309515.415 ops/s
+# Warmup Iteration   3: 307409719.841 ops/s
+Iteration   1: 308041027.200 ops/s
+Iteration   2: 305605033.051 ops/s
+Iteration   3: 312603349.733 ops/s
+
+# Run progress: 7.33% complete, ETA 01:31:08
+# Fork: 3 of 3
+# Warmup Iteration   1: 246573123.512 ops/s
+# Warmup Iteration   2: 263253878.473 ops/s
+# Warmup Iteration   3: 308911040.596 ops/s
+Iteration   1: 310635442.679 ops/s
+Iteration   2: 308335535.077 ops/s
+Iteration   3: 309628028.499 ops/s
+
+
+Result "run":
+  256419860.280 ±(99.9%) 132937321.813 ops/s [Average]
+  (min, avg, max) = (149376293.123, 256419860.280, 312603349.733), stdev = 79108867.874
+  CI (99.9%): [123482538.466, 389357182.093] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = nosuchstring, unmatchedPolicy = EXACT)
+
+# Run progress: 8.00% complete, ETA 01:30:29
+# Fork: 1 of 3
+# Warmup Iteration   1: 745388.751 ops/s
+# Warmup Iteration   2: 847574.563 ops/s
+# Warmup Iteration   3: 897579.849 ops/s
+Iteration   1: 849507.761 ops/s
+Iteration   2: 857534.335 ops/s
+Iteration   3: 853530.244 ops/s
+
+# Run progress: 8.67% complete, ETA 01:29:51
+# Fork: 2 of 3
+# Warmup Iteration   1: 762363.733 ops/s
+# Warmup Iteration   2: 859389.508 ops/s
+# Warmup Iteration   3: 862231.692 ops/s
+Iteration   1: 872291.900 ops/s
+Iteration   2: 845683.735 ops/s
+Iteration   3: 851067.365 ops/s
+
+# Run progress: 9.33% complete, ETA 01:29:11
+# Fork: 3 of 3
+# Warmup Iteration   1: 723698.476 ops/s
+# Warmup Iteration   2: 799833.053 ops/s
+# Warmup Iteration   3: 827706.257 ops/s
+Iteration   1: 855220.913 ops/s
+Iteration   2: 848943.918 ops/s
+Iteration   3: 869338.556 ops/s
+
+
+Result "run":
+  855902.081 ±(99.9%) 15435.912 ops/s [Average]
+  (min, avg, max) = (845683.735, 855902.081, 872291.900), stdev = 9185.664
+  CI (99.9%): [840466.169, 871337.993] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = nosuchstring, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 10.00% complete, ETA 01:28:32
+# Fork: 1 of 3
+# Warmup Iteration   1: 92700.448 ops/s
+# Warmup Iteration   2: 112604.014 ops/s
+# Warmup Iteration   3: 117545.262 ops/s
+Iteration   1: 113904.218 ops/s
+Iteration   2: 115086.085 ops/s
+Iteration   3: 115932.147 ops/s
+
+# Run progress: 10.67% complete, ETA 01:27:54
+# Fork: 2 of 3
+# Warmup Iteration   1: 107973.623 ops/s
+# Warmup Iteration   2: 121833.175 ops/s
+# Warmup Iteration   3: 120295.509 ops/s
+Iteration   1: 120644.924 ops/s
+Iteration   2: 114125.898 ops/s
+Iteration   3: 117410.608 ops/s
+
+# Run progress: 11.33% complete, ETA 01:27:14
+# Fork: 3 of 3
+# Warmup Iteration   1: 108867.814 ops/s
+# Warmup Iteration   2: 119011.925 ops/s
+# Warmup Iteration   3: 122830.640 ops/s
+Iteration   1: 123573.727 ops/s
+Iteration   2: 113472.723 ops/s
+Iteration   3: 112090.047 ops/s
+
+
+Result "run":
+  116248.931 ±(99.9%) 6253.501 ops/s [Average]
+  (min, avg, max) = (112090.047, 116248.931, 123573.727), stdev = 3721.358
+  CI (99.9%): [109995.430, 122502.432] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = washington, unmatchedPolicy = EXACT)
+
+# Run progress: 12.00% complete, ETA 01:26:35
+# Fork: 1 of 3
+# Warmup Iteration   1: 357322.050 ops/s
+# Warmup Iteration   2: 398171.190 ops/s
+# Warmup Iteration   3: 400733.941 ops/s
+Iteration   1: 402406.708 ops/s
+Iteration   2: 408103.435 ops/s
+Iteration   3: 425874.585 ops/s
+
+# Run progress: 12.67% complete, ETA 01:25:56
+# Fork: 2 of 3
+# Warmup Iteration   1: 381390.731 ops/s
+# Warmup Iteration   2: 417916.715 ops/s
+# Warmup Iteration   3: 437130.478 ops/s
+Iteration   1: 435691.022 ops/s
+Iteration   2: 422968.333 ops/s
+Iteration   3: 433706.613 ops/s
+
+# Run progress: 13.33% complete, ETA 01:25:17
+# Fork: 3 of 3
+# Warmup Iteration   1: 354831.302 ops/s
+# Warmup Iteration   2: 400037.482 ops/s
+# Warmup Iteration   3: 409597.436 ops/s
+Iteration   1: 413672.348 ops/s
+Iteration   2: 414847.409 ops/s
+Iteration   3: 413471.762 ops/s
+
+
+Result "run":
+  418971.357 ±(99.9%) 19050.316 ops/s [Average]
+  (min, avg, max) = (402406.708, 418971.357, 435691.022), stdev = 11336.537
+  CI (99.9%): [399921.041, 438021.673] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = washington, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 14.00% complete, ETA 01:24:38
+# Fork: 1 of 3
+# Warmup Iteration   1: 373077.340 ops/s
+# Warmup Iteration   2: 427953.181 ops/s
+# Warmup Iteration   3: 417603.063 ops/s
+Iteration   1: 404964.952 ops/s
+Iteration   2: 407498.432 ops/s
+Iteration   3: 405245.463 ops/s
+
+# Run progress: 14.67% complete, ETA 01:23:59
+# Fork: 2 of 3
+# Warmup Iteration   1: 353541.008 ops/s
+# Warmup Iteration   2: 384559.248 ops/s
+# Warmup Iteration   3: 389648.976 ops/s
+Iteration   1: 419558.604 ops/s
+Iteration   2: 406734.502 ops/s
+Iteration   3: 406482.764 ops/s
+
+# Run progress: 15.33% complete, ETA 01:23:20
+# Fork: 3 of 3
+# Warmup Iteration   1: 339483.763 ops/s
+# Warmup Iteration   2: 375837.571 ops/s
+# Warmup Iteration   3: 387778.765 ops/s
+Iteration   1: 422680.673 ops/s
+Iteration   2: 421076.737 ops/s
+Iteration   3: 406118.289 ops/s
+
+
+Result "run":
+  411151.157 ±(99.9%) 12676.587 ops/s [Average]
+  (min, avg, max) = (404964.952, 411151.157, 422680.673), stdev = 7543.634
+  CI (99.9%): [398474.570, 423827.745] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = wa sh, unmatchedPolicy = EXACT)
+
+# Run progress: 16.00% complete, ETA 01:22:41
+# Fork: 1 of 3
+# Warmup Iteration   1: 61225.401 ops/s
+# Warmup Iteration   2: 70944.527 ops/s
+# Warmup Iteration   3: 68873.483 ops/s
+Iteration   1: 68690.999 ops/s
+Iteration   2: 73947.339 ops/s
+Iteration   3: 75502.159 ops/s
+
+# Run progress: 16.67% complete, ETA 01:22:02
+# Fork: 2 of 3
+# Warmup Iteration   1: 62688.254 ops/s
+# Warmup Iteration   2: 69785.149 ops/s
+# Warmup Iteration   3: 71644.652 ops/s
+Iteration   1: 72306.921 ops/s
+Iteration   2: 71694.034 ops/s
+Iteration   3: 70641.104 ops/s
+
+# Run progress: 17.33% complete, ETA 01:21:22
+# Fork: 3 of 3
+# Warmup Iteration   1: 62350.094 ops/s
+# Warmup Iteration   2: 70212.176 ops/s
+# Warmup Iteration   3: 72179.597 ops/s
+Iteration   1: 78388.334 ops/s
+Iteration   2: 72973.997 ops/s
+Iteration   3: 78535.349 ops/s
+
+
+Result "run":
+  73631.137 ±(99.9%) 5622.742 ops/s [Average]
+  (min, avg, max) = (68690.999, 73631.137, 78535.349), stdev = 3346.004
+  CI (99.9%): [68008.395, 79253.880] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = wa sh, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 18.00% complete, ETA 01:20:43
+# Fork: 1 of 3
+# Warmup Iteration   1: 66486.973 ops/s
+# Warmup Iteration   2: 74245.302 ops/s
+# Warmup Iteration   3: 75584.047 ops/s
+Iteration   1: 74278.006 ops/s
+Iteration   2: 72850.673 ops/s
+Iteration   3: 74029.576 ops/s
+
+# Run progress: 18.67% complete, ETA 01:20:04
+# Fork: 2 of 3
+# Warmup Iteration   1: 69285.234 ops/s
+# Warmup Iteration   2: 72221.277 ops/s
+# Warmup Iteration   3: 74780.970 ops/s
+Iteration   1: 73441.579 ops/s
+Iteration   2: 74730.840 ops/s
+Iteration   3: 71986.526 ops/s
+
+# Run progress: 19.33% complete, ETA 01:19:25
+# Fork: 3 of 3
+# Warmup Iteration   1: 67540.159 ops/s
+# Warmup Iteration   2: 71771.860 ops/s
+# Warmup Iteration   3: 73311.957 ops/s
+Iteration   1: 77188.699 ops/s
+Iteration   2: 74255.998 ops/s
+Iteration   3: 76775.598 ops/s
+
+
+Result "run":
+  74393.055 ±(99.9%) 2839.762 ops/s [Average]
+  (min, avg, max) = (71986.526, 74393.055, 77188.699), stdev = 1689.897
+  CI (99.9%): [71553.293, 77232.816] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = a b c d e, unmatchedPolicy = EXACT)
+
+# Run progress: 20.00% complete, ETA 01:18:45
+# Fork: 1 of 3
+# Warmup Iteration   1: 1492.258 ops/s
+# Warmup Iteration   2: 1749.894 ops/s
+# Warmup Iteration   3: 1752.724 ops/s
+Iteration   1: 1692.726 ops/s
+Iteration   2: 1693.366 ops/s
+Iteration   3: 1786.653 ops/s
+
+# Run progress: 20.67% complete, ETA 01:18:06
+# Fork: 2 of 3
+# Warmup Iteration   1: 1459.043 ops/s
+# Warmup Iteration   2: 1734.311 ops/s
+# Warmup Iteration   3: 1718.406 ops/s
+Iteration   1: 1715.340 ops/s
+Iteration   2: 1697.416 ops/s
+Iteration   3: 1668.826 ops/s
+
+# Run progress: 21.33% complete, ETA 01:17:27
+# Fork: 3 of 3
+# Warmup Iteration   1: 1396.705 ops/s
+# Warmup Iteration   2: 1672.360 ops/s
+# Warmup Iteration   3: 1736.942 ops/s
+Iteration   1: 1749.671 ops/s
+Iteration   2: 1799.704 ops/s
+Iteration   3: 1815.128 ops/s
+
+
+Result "run":
+  1735.425 ±(99.9%) 90.469 ops/s [Average]
+  (min, avg, max) = (1668.826, 1735.425, 1815.128), stdev = 53.837
+  CI (99.9%): [1644.956, 1825.895] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = a b c d e, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 22.00% complete, ETA 01:16:47
+# Fork: 1 of 3
+# Warmup Iteration   1: 1545.009 ops/s
+# Warmup Iteration   2: 1712.283 ops/s
+# Warmup Iteration   3: 1744.455 ops/s
+Iteration   1: 1740.429 ops/s
+Iteration   2: 1769.918 ops/s
+Iteration   3: 1767.345 ops/s
+
+# Run progress: 22.67% complete, ETA 01:16:08
+# Fork: 2 of 3
+# Warmup Iteration   1: 1440.706 ops/s
+# Warmup Iteration   2: 1622.535 ops/s
+# Warmup Iteration   3: 1650.853 ops/s
+Iteration   1: 1746.468 ops/s
+Iteration   2: 1755.822 ops/s
+Iteration   3: 1780.518 ops/s
+
+# Run progress: 23.33% complete, ETA 01:15:29
+# Fork: 3 of 3
+# Warmup Iteration   1: 1584.250 ops/s
+# Warmup Iteration   2: 1781.659 ops/s
+# Warmup Iteration   3: 1790.818 ops/s
+Iteration   1: 1781.224 ops/s
+Iteration   2: 1755.675 ops/s
+Iteration   3: 1713.714 ops/s
+
+
+Result "run":
+  1756.790 ±(99.9%) 36.020 ops/s [Average]
+  (min, avg, max) = (1713.714, 1756.790, 1781.224), stdev = 21.435
+  CI (99.9%): [1720.770, 1792.811] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = EXACT)
+
+# Run progress: 24.00% complete, ETA 01:14:49
+# Fork: 1 of 3
+# Warmup Iteration   1: 513.441 ops/s
+# Warmup Iteration   2: 590.904 ops/s
+# Warmup Iteration   3: 572.746 ops/s
+Iteration   1: 587.432 ops/s
+Iteration   2: 599.727 ops/s
+Iteration   3: 609.247 ops/s
+
+# Run progress: 24.67% complete, ETA 01:14:10
+# Fork: 2 of 3
+# Warmup Iteration   1: 523.841 ops/s
+# Warmup Iteration   2: 585.586 ops/s
+# Warmup Iteration   3: 613.111 ops/s
+Iteration   1: 604.288 ops/s
+Iteration   2: 596.733 ops/s
+Iteration   3: 543.527 ops/s
+
+# Run progress: 25.33% complete, ETA 01:13:31
+# Fork: 3 of 3
+# Warmup Iteration   1: 506.063 ops/s
+# Warmup Iteration   2: 561.942 ops/s
+# Warmup Iteration   3: 524.009 ops/s
+Iteration   1: 555.384 ops/s
+Iteration   2: 587.935 ops/s
+Iteration   3: 567.880 ops/s
+
+
+Result "run":
+  583.572 ±(99.9%) 38.508 ops/s [Average]
+  (min, avg, max) = (543.527, 583.572, 609.247), stdev = 22.915
+  CI (99.9%): [545.065, 622.080] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = UNION, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 26.00% complete, ETA 01:12:51
+# Fork: 1 of 3
+# Warmup Iteration   1: 524.758 ops/s
+# Warmup Iteration   2: 590.183 ops/s
+# Warmup Iteration   3: 581.634 ops/s
+Iteration   1: 548.017 ops/s
+Iteration   2: 548.068 ops/s
+Iteration   3: 545.116 ops/s
+
+# Run progress: 26.67% complete, ETA 01:12:12
+# Fork: 2 of 3
+# Warmup Iteration   1: 485.129 ops/s
+# Warmup Iteration   2: 549.921 ops/s
+# Warmup Iteration   3: 559.841 ops/s
+Iteration   1: 574.408 ops/s
+Iteration   2: 600.069 ops/s
+Iteration   3: 592.947 ops/s
+
+# Run progress: 27.33% complete, ETA 01:11:33
+# Fork: 3 of 3
+# Warmup Iteration   1: 507.524 ops/s
+# Warmup Iteration   2: 555.040 ops/s
+# Warmup Iteration   3: 537.367 ops/s
+Iteration   1: 554.393 ops/s
+Iteration   2: 608.801 ops/s
+Iteration   3: 631.553 ops/s
+
+
+Result "run":
+  578.153 ±(99.9%) 53.051 ops/s [Average]
+  (min, avg, max) = (545.116, 578.153, 631.553), stdev = 31.570
+  CI (99.9%): [525.101, 631.204] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = , unmatchedPolicy = EXACT)
+
+# Run progress: 28.00% complete, ETA 01:10:53
+# Fork: 1 of 3
+# Warmup Iteration   1: 242183361.973 ops/s
+# Warmup Iteration   2: 235982451.255 ops/s
+# Warmup Iteration   3: 280520346.448 ops/s
+Iteration   1: 286522532.169 ops/s
+Iteration   2: 288431391.136 ops/s
+Iteration   3: 249192250.805 ops/s
+
+# Run progress: 28.67% complete, ETA 01:10:14
+# Fork: 2 of 3
+# Warmup Iteration   1: 227454260.231 ops/s
+# Warmup Iteration   2: 243358928.431 ops/s
+# Warmup Iteration   3: 280566137.921 ops/s
+Iteration   1: 286254254.039 ops/s
+Iteration   2: 293016946.555 ops/s
+Iteration   3: 298373680.247 ops/s
+
+# Run progress: 29.33% complete, ETA 01:09:35
+# Fork: 3 of 3
+# Warmup Iteration   1: 241988429.995 ops/s
+# Warmup Iteration   2: 249504461.491 ops/s
+# Warmup Iteration   3: 282476578.293 ops/s
+Iteration   1: 288912249.510 ops/s
+Iteration   2: 301750523.854 ops/s
+Iteration   3: 253123579.280 ops/s
+
+
+Result "run":
+  282841934.177 ±(99.9%) 31500114.647 ops/s [Average]
+  (min, avg, max) = (249192250.805, 282841934.177, 301750523.854), stdev = 18745212.959
+  CI (99.9%): [251341819.530, 314342048.824] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = , unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 30.00% complete, ETA 01:08:55
+# Fork: 1 of 3
+# Warmup Iteration   1: 233865005.940 ops/s
+# Warmup Iteration   2: 238029243.172 ops/s
+# Warmup Iteration   3: 246727128.176 ops/s
+Iteration   1: 280636164.910 ops/s
+Iteration   2: 294128629.512 ops/s
+Iteration   3: 306276157.643 ops/s
+
+# Run progress: 30.67% complete, ETA 01:08:16
+# Fork: 2 of 3
+# Warmup Iteration   1: 233685567.847 ops/s
+# Warmup Iteration   2: 247060833.241 ops/s
+# Warmup Iteration   3: 289927777.454 ops/s
+Iteration   1: 288759715.550 ops/s
+Iteration   2: 283910761.292 ops/s
+Iteration   3: 280489233.307 ops/s
+
+# Run progress: 31.33% complete, ETA 01:07:37
+# Fork: 3 of 3
+# Warmup Iteration   1: 229810439.134 ops/s
+# Warmup Iteration   2: 229193757.985 ops/s
+# Warmup Iteration   3: 278607907.446 ops/s
+Iteration   1: 279148714.037 ops/s
+Iteration   2: 279986132.631 ops/s
+Iteration   3: 280465449.490 ops/s
+
+
+Result "run":
+  285977884.264 ±(99.9%) 15287007.485 ops/s [Average]
+  (min, avg, max) = (279148714.037, 285977884.264, 306276157.643), stdev = 9097052.948
+  CI (99.9%): [270690876.779, 301264891.748] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = nosuchstring, unmatchedPolicy = EXACT)
+
+# Run progress: 32.00% complete, ETA 01:06:57
+# Fork: 1 of 3
+# Warmup Iteration   1: 552713.781 ops/s
+# Warmup Iteration   2: 670832.188 ops/s
+# Warmup Iteration   3: 792517.181 ops/s
+Iteration   1: 791635.369 ops/s
+Iteration   2: 790205.804 ops/s
+Iteration   3: 726011.984 ops/s
+
+# Run progress: 32.67% complete, ETA 01:06:18
+# Fork: 2 of 3
+# Warmup Iteration   1: 687272.481 ops/s
+# Warmup Iteration   2: 773495.629 ops/s
+# Warmup Iteration   3: 791803.648 ops/s
+Iteration   1: 798675.251 ops/s
+Iteration   2: 788841.458 ops/s
+Iteration   3: 810143.736 ops/s
+
+# Run progress: 33.33% complete, ETA 01:05:39
+# Fork: 3 of 3
+# Warmup Iteration   1: 723631.993 ops/s
+# Warmup Iteration   2: 798832.500 ops/s
+# Warmup Iteration   3: 806042.809 ops/s
+Iteration   1: 816162.127 ops/s
+Iteration   2: 831594.502 ops/s
+Iteration   3: 818662.953 ops/s
+
+
+Result "run":
+  796881.465 ±(99.9%) 51072.128 ops/s [Average]
+  (min, avg, max) = (726011.984, 796881.465, 831594.502), stdev = 30392.204
+  CI (99.9%): [745809.337, 847953.593] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = nosuchstring, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 34.00% complete, ETA 01:05:00
+# Fork: 1 of 3
+# Warmup Iteration   1: 94825.198 ops/s
+# Warmup Iteration   2: 101229.640 ops/s
+# Warmup Iteration   3: 107806.428 ops/s
+Iteration   1: 107992.038 ops/s
+Iteration   2: 98773.970 ops/s
+Iteration   3: 108900.656 ops/s
+
+# Run progress: 34.67% complete, ETA 01:04:21
+# Fork: 2 of 3
+# Warmup Iteration   1: 91616.490 ops/s
+# Warmup Iteration   2: 101818.837 ops/s
+# Warmup Iteration   3: 108130.659 ops/s
+Iteration   1: 102506.844 ops/s
+Iteration   2: 104498.914 ops/s
+Iteration   3: 104859.752 ops/s
+
+# Run progress: 35.33% complete, ETA 01:03:41
+# Fork: 3 of 3
+# Warmup Iteration   1: 92190.416 ops/s
+# Warmup Iteration   2: 101946.035 ops/s
+# Warmup Iteration   3: 99830.533 ops/s
+Iteration   1: 98624.864 ops/s
+Iteration   2: 102999.278 ops/s
+Iteration   3: 104892.313 ops/s
+
+
+Result "run":
+  103783.181 ±(99.9%) 5963.427 ops/s [Average]
+  (min, avg, max) = (98624.864, 103783.181, 108900.656), stdev = 3548.740
+  CI (99.9%): [97819.754, 109746.608] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = washington, unmatchedPolicy = EXACT)
+
+# Run progress: 36.00% complete, ETA 01:03:02
+# Fork: 1 of 3
+# Warmup Iteration   1: 369333.510 ops/s
+# Warmup Iteration   2: 400697.135 ops/s
+# Warmup Iteration   3: 421034.948 ops/s
+Iteration   1: 413104.082 ops/s
+Iteration   2: 412767.407 ops/s
+Iteration   3: 423589.480 ops/s
+
+# Run progress: 36.67% complete, ETA 01:02:22
+# Fork: 2 of 3
+# Warmup Iteration   1: 372689.257 ops/s
+# Warmup Iteration   2: 418099.491 ops/s
+# Warmup Iteration   3: 395489.141 ops/s
+Iteration   1: 402466.392 ops/s
+Iteration   2: 434121.075 ops/s
+Iteration   3: 431472.234 ops/s
+
+# Run progress: 37.33% complete, ETA 01:01:43
+# Fork: 3 of 3
+# Warmup Iteration   1: 365016.556 ops/s
+# Warmup Iteration   2: 424904.130 ops/s
+# Warmup Iteration   3: 409171.247 ops/s
+Iteration   1: 430039.246 ops/s
+Iteration   2: 421972.899 ops/s
+Iteration   3: 408474.165 ops/s
+
+
+Result "run":
+  419778.553 ±(99.9%) 18677.368 ops/s [Average]
+  (min, avg, max) = (402466.392, 419778.553, 434121.075), stdev = 11114.602
+  CI (99.9%): [401101.185, 438455.922] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = washington, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 38.00% complete, ETA 01:01:04
+# Fork: 1 of 3
+# Warmup Iteration   1: 353341.594 ops/s
+# Warmup Iteration   2: 413712.453 ops/s
+# Warmup Iteration   3: 421007.337 ops/s
+Iteration   1: 395561.918 ops/s
+Iteration   2: 405787.308 ops/s
+Iteration   3: 400238.952 ops/s
+
+# Run progress: 38.67% complete, ETA 01:00:24
+# Fork: 2 of 3
+# Warmup Iteration   1: 393092.966 ops/s
+# Warmup Iteration   2: 422020.042 ops/s
+# Warmup Iteration   3: 430282.882 ops/s
+Iteration   1: 401978.772 ops/s
+Iteration   2: 392860.524 ops/s
+Iteration   3: 408712.305 ops/s
+
+# Run progress: 39.33% complete, ETA 00:59:45
+# Fork: 3 of 3
+# Warmup Iteration   1: 330441.424 ops/s
+# Warmup Iteration   2: 388845.618 ops/s
+# Warmup Iteration   3: 397203.814 ops/s
+Iteration   1: 389863.037 ops/s
+Iteration   2: 400997.277 ops/s
+Iteration   3: 417301.986 ops/s
+
+
+Result "run":
+  401478.009 ±(99.9%) 14153.231 ops/s [Average]
+  (min, avg, max) = (389863.037, 401478.009, 417301.986), stdev = 8422.360
+  CI (99.9%): [387324.778, 415631.239] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = wa sh, unmatchedPolicy = EXACT)
+
+# Run progress: 40.00% complete, ETA 00:59:05
+# Fork: 1 of 3
+# Warmup Iteration   1: 83131.286 ops/s
+# Warmup Iteration   2: 99358.611 ops/s
+# Warmup Iteration   3: 97464.057 ops/s
+Iteration   1: 97873.310 ops/s
+Iteration   2: 100691.282 ops/s
+Iteration   3: 101190.111 ops/s
+
+# Run progress: 40.67% complete, ETA 00:58:26
+# Fork: 2 of 3
+# Warmup Iteration   1: 88475.629 ops/s
+# Warmup Iteration   2: 94778.010 ops/s
+# Warmup Iteration   3: 103304.620 ops/s
+Iteration   1: 98819.816 ops/s
+Iteration   2: 100214.241 ops/s
+Iteration   3: 99076.933 ops/s
+
+# Run progress: 41.33% complete, ETA 00:57:47
+# Fork: 3 of 3
+# Warmup Iteration   1: 89016.623 ops/s
+# Warmup Iteration   2: 95936.758 ops/s
+# Warmup Iteration   3: 99755.141 ops/s
+Iteration   1: 99452.667 ops/s
+Iteration   2: 97927.705 ops/s
+Iteration   3: 104040.237 ops/s
+
+
+Result "run":
+  99920.700 ±(99.9%) 3230.674 ops/s [Average]
+  (min, avg, max) = (97873.310, 99920.700, 104040.237), stdev = 1922.522
+  CI (99.9%): [96690.027, 103151.374] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = wa sh, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 42.00% complete, ETA 00:57:07
+# Fork: 1 of 3
+# Warmup Iteration   1: 87454.366 ops/s
+# Warmup Iteration   2: 98999.919 ops/s
+# Warmup Iteration   3: 102874.734 ops/s
+Iteration   1: 97657.400 ops/s
+Iteration   2: 95659.964 ops/s
+Iteration   3: 93620.749 ops/s
+
+# Run progress: 42.67% complete, ETA 00:56:28
+# Fork: 2 of 3
+# Warmup Iteration   1: 79813.529 ops/s
+# Warmup Iteration   2: 91649.598 ops/s
+# Warmup Iteration   3: 100917.312 ops/s
+Iteration   1: 100332.451 ops/s
+Iteration   2: 92758.596 ops/s
+Iteration   3: 96585.956 ops/s
+
+# Run progress: 43.33% complete, ETA 00:55:49
+# Fork: 3 of 3
+# Warmup Iteration   1: 79644.459 ops/s
+# Warmup Iteration   2: 87197.218 ops/s
+# Warmup Iteration   3: 89584.481 ops/s
+Iteration   1: 93449.369 ops/s
+Iteration   2: 91684.769 ops/s
+Iteration   3: 92767.080 ops/s
+
+
+Result "run":
+  94946.259 ±(99.9%) 4742.914 ops/s [Average]
+  (min, avg, max) = (91684.769, 94946.259, 100332.451), stdev = 2822.432
+  CI (99.9%): [90203.345, 99689.174] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = a b c d e, unmatchedPolicy = EXACT)
+
+# Run progress: 44.00% complete, ETA 00:55:09
+# Fork: 1 of 3
+# Warmup Iteration   1: 1550.857 ops/s
+# Warmup Iteration   2: 1799.598 ops/s
+# Warmup Iteration   3: 1833.966 ops/s
+Iteration   1: 1816.454 ops/s
+Iteration   2: 1821.718 ops/s
+Iteration   3: 1815.181 ops/s
+
+# Run progress: 44.67% complete, ETA 00:54:30
+# Fork: 2 of 3
+# Warmup Iteration   1: 1506.653 ops/s
+# Warmup Iteration   2: 1785.082 ops/s
+# Warmup Iteration   3: 1828.028 ops/s
+Iteration   1: 1802.590 ops/s
+Iteration   2: 1831.454 ops/s
+Iteration   3: 1827.499 ops/s
+
+# Run progress: 45.33% complete, ETA 00:53:50
+# Fork: 3 of 3
+# Warmup Iteration   1: 1518.055 ops/s
+# Warmup Iteration   2: 1794.072 ops/s
+# Warmup Iteration   3: 1836.045 ops/s
+Iteration   1: 1763.297 ops/s
+Iteration   2: 1752.699 ops/s
+Iteration   3: 1783.501 ops/s
+
+
+Result "run":
+  1801.599 ±(99.9%) 48.116 ops/s [Average]
+  (min, avg, max) = (1752.699, 1801.599, 1831.454), stdev = 28.633
+  CI (99.9%): [1753.483, 1849.715] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = a b c d e, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 46.00% complete, ETA 00:53:11
+# Fork: 1 of 3
+# Warmup Iteration   1: 1533.885 ops/s
+# Warmup Iteration   2: 1776.304 ops/s
+# Warmup Iteration   3: 1823.160 ops/s
+Iteration   1: 1804.290 ops/s
+Iteration   2: 1839.123 ops/s
+Iteration   3: 1820.296 ops/s
+
+# Run progress: 46.67% complete, ETA 00:52:32
+# Fork: 2 of 3
+# Warmup Iteration   1: 1552.153 ops/s
+# Warmup Iteration   2: 1776.796 ops/s
+# Warmup Iteration   3: 1832.118 ops/s
+Iteration   1: 1765.988 ops/s
+Iteration   2: 1875.545 ops/s
+Iteration   3: 1861.950 ops/s
+
+# Run progress: 47.33% complete, ETA 00:51:52
+# Fork: 3 of 3
+# Warmup Iteration   1: 1458.683 ops/s
+# Warmup Iteration   2: 1747.479 ops/s
+# Warmup Iteration   3: 1797.063 ops/s
+Iteration   1: 1748.425 ops/s
+Iteration   2: 1786.986 ops/s
+Iteration   3: 1799.937 ops/s
+
+
+Result "run":
+  1811.393 ±(99.9%) 71.105 ops/s [Average]
+  (min, avg, max) = (1748.425, 1811.393, 1875.545), stdev = 42.314
+  CI (99.9%): [1740.288, 1882.499] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = EXACT)
+
+# Run progress: 48.00% complete, ETA 00:51:13
+# Fork: 1 of 3
+# Warmup Iteration   1: 561.277 ops/s
+# Warmup Iteration   2: 637.623 ops/s
+# Warmup Iteration   3: 656.880 ops/s
+Iteration   1: 664.692 ops/s
+Iteration   2: 661.247 ops/s
+Iteration   3: 671.784 ops/s
+
+# Run progress: 48.67% complete, ETA 00:50:33
+# Fork: 2 of 3
+# Warmup Iteration   1: 570.303 ops/s
+# Warmup Iteration   2: 657.718 ops/s
+# Warmup Iteration   3: 665.091 ops/s
+Iteration   1: 659.137 ops/s
+Iteration   2: 654.289 ops/s
+Iteration   3: 655.556 ops/s
+
+# Run progress: 49.33% complete, ETA 00:49:54
+# Fork: 3 of 3
+# Warmup Iteration   1: 524.775 ops/s
+# Warmup Iteration   2: 665.991 ops/s
+# Warmup Iteration   3: 674.115 ops/s
+Iteration   1: 660.198 ops/s
+Iteration   2: 658.908 ops/s
+Iteration   3: 685.121 ops/s
+
+
+Result "run":
+  663.437 ±(99.9%) 16.179 ops/s [Average]
+  (min, avg, max) = (654.289, 663.437, 685.121), stdev = 9.628
+  CI (99.9%): [647.258, 679.616] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.zigurs.karlis.utils.search.bench.ReadOnlyOperations.run
+# Parameters: (accumulationPolicy = INTERSECTION, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 50.00% complete, ETA 00:49:15
+# Fork: 1 of 3
+# Warmup Iteration   1: 534.917 ops/s
+# Warmup Iteration   2: 628.027 ops/s
+# Warmup Iteration   3: 620.743 ops/s
+Iteration   1: 669.411 ops/s
+Iteration   2: 676.166 ops/s
+Iteration   3: 677.702 ops/s
+
+# Run progress: 50.67% complete, ETA 00:48:35
+# Fork: 2 of 3
+# Warmup Iteration   1: 560.234 ops/s
+# Warmup Iteration   2: 662.910 ops/s
+# Warmup Iteration   3: 682.064 ops/s
+Iteration   1: 676.921 ops/s
+Iteration   2: 698.861 ops/s
+Iteration   3: 681.121 ops/s
+
+# Run progress: 51.33% complete, ETA 00:47:56
+# Fork: 3 of 3
+# Warmup Iteration   1: 586.190 ops/s
+# Warmup Iteration   2: 681.596 ops/s
+# Warmup Iteration   3: 673.221 ops/s
+Iteration   1: 684.454 ops/s
+Iteration   2: 684.700 ops/s
+Iteration   3: 683.684 ops/s
+
+
+Result "run":
+  681.447 ±(99.9%) 13.746 ops/s [Average]
+  (min, avg, max) = (669.411, 681.447, 698.861), stdev = 8.180
+  CI (99.9%): [667.701, 695.192] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = true, searchString = wa sh, unmatchedPolicy = EXACT)
+
+# Run progress: 52.00% complete, ETA 00:47:17
+# Fork: 1 of 3
+# Warmup Iteration   1: 58.622 us/op
+# Warmup Iteration   2: 52.968 us/op
+# Warmup Iteration   3: 52.467 us/op
+Iteration   1: 52.954 us/op
+Iteration   2: 51.185 us/op
+Iteration   3: 51.269 us/op
+
+# Run progress: 52.67% complete, ETA 00:46:37
+# Fork: 2 of 3
+# Warmup Iteration   1: 68.272 us/op
+# Warmup Iteration   2: 53.200 us/op
+# Warmup Iteration   3: 53.878 us/op
+Iteration   1: 50.985 us/op
+Iteration   2: 51.358 us/op
+Iteration   3: 50.435 us/op
+
+# Run progress: 53.33% complete, ETA 00:45:58
+# Fork: 3 of 3
+# Warmup Iteration   1: 66.763 us/op
+# Warmup Iteration   2: 52.402 us/op
+# Warmup Iteration   3: 53.118 us/op
+Iteration   1: 51.485 us/op
+Iteration   2: 51.826 us/op
+Iteration   3: 52.056 us/op
+
+
+Result "run":
+  51.506 ±(99.9%) 1.203 us/op [Average]
+  (min, avg, max) = (50.435, 51.506, 52.954), stdev = 0.716
+  CI (99.9%): [50.303, 52.709] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = true, searchString = wa sh, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 54.00% complete, ETA 00:45:18
+# Fork: 1 of 3
+# Warmup Iteration   1: 67.745 us/op
+# Warmup Iteration   2: 51.694 us/op
+# Warmup Iteration   3: 52.763 us/op
+Iteration   1: 52.146 us/op
+Iteration   2: 51.248 us/op
+Iteration   3: 49.930 us/op
+
+# Run progress: 54.67% complete, ETA 00:44:39
+# Fork: 2 of 3
+# Warmup Iteration   1: 70.329 us/op
+# Warmup Iteration   2: 49.887 us/op
+# Warmup Iteration   3: 51.658 us/op
+Iteration   1: 49.141 us/op
+Iteration   2: 49.960 us/op
+Iteration   3: 49.030 us/op
+
+# Run progress: 55.33% complete, ETA 00:44:00
+# Fork: 3 of 3
+# Warmup Iteration   1: 66.766 us/op
+# Warmup Iteration   2: 51.152 us/op
+# Warmup Iteration   3: 50.938 us/op
+Iteration   1: 51.333 us/op
+Iteration   2: 50.241 us/op
+Iteration   3: 51.380 us/op
+
+
+Result "run":
+  50.490 ±(99.9%) 1.824 us/op [Average]
+  (min, avg, max) = (49.030, 50.490, 52.146), stdev = 1.085
+  CI (99.9%): [48.666, 52.314] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = true, searchString = a b c d e, unmatchedPolicy = EXACT)
+
+# Run progress: 56.00% complete, ETA 00:43:20
+# Fork: 1 of 3
+# Warmup Iteration   1: 795.593 us/op
+# Warmup Iteration   2: 634.427 us/op
+# Warmup Iteration   3: 633.202 us/op
+Iteration   1: 708.696 us/op
+Iteration   2: 757.734 us/op
+Iteration   3: 762.031 us/op
+
+# Run progress: 56.67% complete, ETA 00:42:41
+# Fork: 2 of 3
+# Warmup Iteration   1: 903.134 us/op
+# Warmup Iteration   2: 774.964 us/op
+# Warmup Iteration   3: 758.571 us/op
+Iteration   1: 767.617 us/op
+Iteration   2: 754.381 us/op
+Iteration   3: 741.691 us/op
+
+# Run progress: 57.33% complete, ETA 00:42:01
+# Fork: 3 of 3
+# Warmup Iteration   1: 957.907 us/op
+# Warmup Iteration   2: 780.303 us/op
+# Warmup Iteration   3: 764.730 us/op
+Iteration   1: 748.690 us/op
+Iteration   2: 755.980 us/op
+Iteration   3: 747.564 us/op
+
+
+Result "run":
+  749.376 ±(99.9%) 28.796 us/op [Average]
+  (min, avg, max) = (708.696, 749.376, 767.617), stdev = 17.136
+  CI (99.9%): [720.580, 778.172] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = true, searchString = a b c d e, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 58.00% complete, ETA 00:41:22
+# Fork: 1 of 3
+# Warmup Iteration   1: 931.748 us/op
+# Warmup Iteration   2: 798.450 us/op
+# Warmup Iteration   3: 769.530 us/op
+Iteration   1: 756.024 us/op
+Iteration   2: 739.131 us/op
+Iteration   3: 753.875 us/op
+
+# Run progress: 58.67% complete, ETA 00:40:43
+# Fork: 2 of 3
+# Warmup Iteration   1: 955.178 us/op
+# Warmup Iteration   2: 794.205 us/op
+# Warmup Iteration   3: 791.082 us/op
+Iteration   1: 782.792 us/op
+Iteration   2: 771.108 us/op
+Iteration   3: 764.458 us/op
+
+# Run progress: 59.33% complete, ETA 00:40:03
+# Fork: 3 of 3
+# Warmup Iteration   1: 953.276 us/op
+# Warmup Iteration   2: 783.204 us/op
+# Warmup Iteration   3: 773.769 us/op
+Iteration   1: 782.802 us/op
+Iteration   2: 776.833 us/op
+Iteration   3: 772.534 us/op
+
+
+Result "run":
+  766.617 ±(99.9%) 24.625 us/op [Average]
+  (min, avg, max) = (739.131, 766.617, 782.802), stdev = 14.654
+  CI (99.9%): [741.993, 791.242] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = true, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = EXACT)
+
+# Run progress: 60.00% complete, ETA 00:39:24
+# Fork: 1 of 3
+# Warmup Iteration   1: 1786.744 us/op
+# Warmup Iteration   2: 1323.200 us/op
+# Warmup Iteration   3: 1286.761 us/op
+Iteration   1: 1243.162 us/op
+Iteration   2: 1255.570 us/op
+Iteration   3: 1254.875 us/op
+
+# Run progress: 60.67% complete, ETA 00:38:44
+# Fork: 2 of 3
+# Warmup Iteration   1: 1602.203 us/op
+# Warmup Iteration   2: 1308.817 us/op
+# Warmup Iteration   3: 1301.244 us/op
+Iteration   1: 1261.736 us/op
+Iteration   2: 1257.861 us/op
+Iteration   3: 1265.411 us/op
+
+# Run progress: 61.33% complete, ETA 00:38:05
+# Fork: 3 of 3
+# Warmup Iteration   1: 1724.250 us/op
+# Warmup Iteration   2: 1318.935 us/op
+# Warmup Iteration   3: 1326.647 us/op
+Iteration   1: 1292.422 us/op
+Iteration   2: 1291.521 us/op
+Iteration   3: 1292.613 us/op
+
+
+Result "run":
+  1268.352 ±(99.9%) 31.700 us/op [Average]
+  (min, avg, max) = (1243.162, 1268.352, 1292.613), stdev = 18.864
+  CI (99.9%): [1236.653, 1300.052] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = true, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 62.00% complete, ETA 00:37:25
+# Fork: 1 of 3
+# Warmup Iteration   1: 1706.421 us/op
+# Warmup Iteration   2: 1310.242 us/op
+# Warmup Iteration   3: 1303.588 us/op
+Iteration   1: 1306.097 us/op
+Iteration   2: 1297.499 us/op
+Iteration   3: 1313.882 us/op
+
+# Run progress: 62.67% complete, ETA 00:36:46
+# Fork: 2 of 3
+# Warmup Iteration   1: 1718.956 us/op
+# Warmup Iteration   2: 1346.656 us/op
+# Warmup Iteration   3: 1340.399 us/op
+Iteration   1: 1296.123 us/op
+Iteration   2: 1284.772 us/op
+Iteration   3: 1283.631 us/op
+
+# Run progress: 63.33% complete, ETA 00:36:07
+# Fork: 3 of 3
+# Warmup Iteration   1: 1706.726 us/op
+# Warmup Iteration   2: 1322.131 us/op
+# Warmup Iteration   3: 1321.665 us/op
+Iteration   1: 1272.680 us/op
+Iteration   2: 1271.077 us/op
+Iteration   3: 1279.451 us/op
+
+
+Result "run":
+  1289.468 ±(99.9%) 24.910 us/op [Average]
+  (min, avg, max) = (1271.077, 1289.468, 1313.882), stdev = 14.824
+  CI (99.9%): [1264.558, 1314.378] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = false, searchString = wa sh, unmatchedPolicy = EXACT)
+
+# Run progress: 64.00% complete, ETA 00:35:27
+# Fork: 1 of 3
+# Warmup Iteration   1: 15.287 us/op
+# Warmup Iteration   2: 13.942 us/op
+# Warmup Iteration   3: 13.276 us/op
+Iteration   1: 13.063 us/op
+Iteration   2: 12.841 us/op
+Iteration   3: 13.079 us/op
+
+# Run progress: 64.67% complete, ETA 00:34:48
+# Fork: 2 of 3
+# Warmup Iteration   1: 14.511 us/op
+# Warmup Iteration   2: 13.352 us/op
+# Warmup Iteration   3: 12.947 us/op
+Iteration   1: 12.712 us/op
+Iteration   2: 12.772 us/op
+Iteration   3: 12.631 us/op
+
+# Run progress: 65.33% complete, ETA 00:34:08
+# Fork: 3 of 3
+# Warmup Iteration   1: 14.895 us/op
+# Warmup Iteration   2: 13.066 us/op
+# Warmup Iteration   3: 12.926 us/op
+Iteration   1: 12.890 us/op
+Iteration   2: 13.130 us/op
+Iteration   3: 13.544 us/op
+
+
+Result "run":
+  12.962 ±(99.9%) 0.468 us/op [Average]
+  (min, avg, max) = (12.631, 12.962, 13.544), stdev = 0.278
+  CI (99.9%): [12.495, 13.430] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = false, searchString = wa sh, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 66.00% complete, ETA 00:33:29
+# Fork: 1 of 3
+# Warmup Iteration   1: 15.866 us/op
+# Warmup Iteration   2: 12.736 us/op
+# Warmup Iteration   3: 12.261 us/op
+Iteration   1: 12.302 us/op
+Iteration   2: 12.301 us/op
+Iteration   3: 12.169 us/op
+
+# Run progress: 66.67% complete, ETA 00:32:50
+# Fork: 2 of 3
+# Warmup Iteration   1: 14.024 us/op
+# Warmup Iteration   2: 12.481 us/op
+# Warmup Iteration   3: 12.310 us/op
+Iteration   1: 12.561 us/op
+Iteration   2: 12.467 us/op
+Iteration   3: 12.321 us/op
+
+# Run progress: 67.33% complete, ETA 00:32:10
+# Fork: 3 of 3
+# Warmup Iteration   1: 14.899 us/op
+# Warmup Iteration   2: 12.864 us/op
+# Warmup Iteration   3: 12.654 us/op
+Iteration   1: 13.197 us/op
+Iteration   2: 12.950 us/op
+Iteration   3: 13.682 us/op
+
+
+Result "run":
+  12.661 ±(99.9%) 0.856 us/op [Average]
+  (min, avg, max) = (12.169, 12.661, 13.682), stdev = 0.509
+  CI (99.9%): [11.805, 13.517] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = false, searchString = a b c d e, unmatchedPolicy = EXACT)
+
+# Run progress: 68.00% complete, ETA 00:31:31
+# Fork: 1 of 3
+# Warmup Iteration   1: 667.228 us/op
+# Warmup Iteration   2: 580.250 us/op
+# Warmup Iteration   3: 578.317 us/op
+Iteration   1: 575.835 us/op
+Iteration   2: 597.272 us/op
+Iteration   3: 565.849 us/op
+
+# Run progress: 68.67% complete, ETA 00:30:51
+# Fork: 2 of 3
+# Warmup Iteration   1: 657.683 us/op
+# Warmup Iteration   2: 581.550 us/op
+# Warmup Iteration   3: 569.522 us/op
+Iteration   1: 560.908 us/op
+Iteration   2: 556.765 us/op
+Iteration   3: 571.997 us/op
+
+# Run progress: 69.33% complete, ETA 00:30:12
+# Fork: 3 of 3
+# Warmup Iteration   1: 669.531 us/op
+# Warmup Iteration   2: 591.462 us/op
+# Warmup Iteration   3: 591.595 us/op
+Iteration   1: 583.092 us/op
+Iteration   2: 591.245 us/op
+Iteration   3: 597.853 us/op
+
+
+Result "run":
+  577.869 ±(99.9%) 25.885 us/op [Average]
+  (min, avg, max) = (556.765, 577.869, 597.853), stdev = 15.404
+  CI (99.9%): [551.984, 603.754] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = false, searchString = a b c d e, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 70.00% complete, ETA 00:29:33
+# Fork: 1 of 3
+# Warmup Iteration   1: 669.987 us/op
+# Warmup Iteration   2: 571.402 us/op
+# Warmup Iteration   3: 558.754 us/op
+Iteration   1: 550.816 us/op
+Iteration   2: 559.753 us/op
+Iteration   3: 559.638 us/op
+
+# Run progress: 70.67% complete, ETA 00:28:53
+# Fork: 2 of 3
+# Warmup Iteration   1: 689.143 us/op
+# Warmup Iteration   2: 567.438 us/op
+# Warmup Iteration   3: 584.180 us/op
+Iteration   1: 588.652 us/op
+Iteration   2: 587.034 us/op
+Iteration   3: 586.337 us/op
+
+# Run progress: 71.33% complete, ETA 00:28:14
+# Fork: 3 of 3
+# Warmup Iteration   1: 690.885 us/op
+# Warmup Iteration   2: 614.623 us/op
+# Warmup Iteration   3: 575.859 us/op
+Iteration   1: 584.540 us/op
+Iteration   2: 576.384 us/op
+Iteration   3: 579.606 us/op
+
+
+Result "run":
+  574.751 ±(99.9%) 23.962 us/op [Average]
+  (min, avg, max) = (550.816, 574.751, 588.652), stdev = 14.259
+  CI (99.9%): [550.789, 598.713] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = false, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = EXACT)
+
+# Run progress: 72.00% complete, ETA 00:27:34
+# Fork: 1 of 3
+# Warmup Iteration   1: 1957.112 us/op
+# Warmup Iteration   2: 1670.830 us/op
+# Warmup Iteration   3: 1643.243 us/op
+Iteration   1: 1614.558 us/op
+Iteration   2: 1627.335 us/op
+Iteration   3: 1608.066 us/op
+
+# Run progress: 72.67% complete, ETA 00:26:55
+# Fork: 2 of 3
+# Warmup Iteration   1: 1882.422 us/op
+# Warmup Iteration   2: 1666.958 us/op
+# Warmup Iteration   3: 1691.036 us/op
+Iteration   1: 1655.738 us/op
+Iteration   2: 1657.109 us/op
+Iteration   3: 1627.932 us/op
+
+# Run progress: 73.33% complete, ETA 00:26:16
+# Fork: 3 of 3
+# Warmup Iteration   1: 1889.092 us/op
+# Warmup Iteration   2: 1744.891 us/op
+# Warmup Iteration   3: 1777.734 us/op
+Iteration   1: 1734.565 us/op
+Iteration   2: 1727.051 us/op
+Iteration   3: 1721.547 us/op
+
+
+Result "run":
+  1663.767 ±(99.9%) 85.273 us/op [Average]
+  (min, avg, max) = (1608.066, 1663.767, 1734.565), stdev = 50.744
+  CI (99.9%): [1578.494, 1749.040] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = UNION, fjEnabled = false, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 74.00% complete, ETA 00:25:36
+# Fork: 1 of 3
+# Warmup Iteration   1: 1920.862 us/op
+# Warmup Iteration   2: 1650.701 us/op
+# Warmup Iteration   3: 1657.478 us/op
+Iteration   1: 1652.419 us/op
+Iteration   2: 1637.004 us/op
+Iteration   3: 1686.457 us/op
+
+# Run progress: 74.67% complete, ETA 00:24:57
+# Fork: 2 of 3
+# Warmup Iteration   1: 1921.815 us/op
+# Warmup Iteration   2: 1657.012 us/op
+# Warmup Iteration   3: 1716.556 us/op
+Iteration   1: 1643.967 us/op
+Iteration   2: 1720.616 us/op
+Iteration   3: 1762.308 us/op
+
+# Run progress: 75.33% complete, ETA 00:24:17
+# Fork: 3 of 3
+# Warmup Iteration   1: 1901.150 us/op
+# Warmup Iteration   2: 1605.280 us/op
+# Warmup Iteration   3: 1582.107 us/op
+Iteration   1: 1725.605 us/op
+Iteration   2: 1728.711 us/op
+Iteration   3: 1717.881 us/op
+
+
+Result "run":
+  1697.219 ±(99.9%) 74.189 us/op [Average]
+  (min, avg, max) = (1637.004, 1697.219, 1762.308), stdev = 44.149
+  CI (99.9%): [1623.030, 1771.408] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = true, searchString = wa sh, unmatchedPolicy = EXACT)
+
+# Run progress: 76.00% complete, ETA 00:23:38
+# Fork: 1 of 3
+# Warmup Iteration   1: 42.583 us/op
+# Warmup Iteration   2: 34.818 us/op
+# Warmup Iteration   3: 34.784 us/op
+Iteration   1: 34.790 us/op
+Iteration   2: 34.545 us/op
+Iteration   3: 35.370 us/op
+
+# Run progress: 76.67% complete, ETA 00:22:59
+# Fork: 2 of 3
+# Warmup Iteration   1: 47.552 us/op
+# Warmup Iteration   2: 36.115 us/op
+# Warmup Iteration   3: 36.445 us/op
+Iteration   1: 35.573 us/op
+Iteration   2: 35.464 us/op
+Iteration   3: 35.438 us/op
+
+# Run progress: 77.33% complete, ETA 00:22:19
+# Fork: 3 of 3
+# Warmup Iteration   1: 45.770 us/op
+# Warmup Iteration   2: 36.198 us/op
+# Warmup Iteration   3: 36.794 us/op
+Iteration   1: 36.412 us/op
+Iteration   2: 36.686 us/op
+Iteration   3: 36.748 us/op
+
+
+Result "run":
+  35.670 ±(99.9%) 1.326 us/op [Average]
+  (min, avg, max) = (34.545, 35.670, 36.748), stdev = 0.789
+  CI (99.9%): [34.344, 36.995] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = true, searchString = wa sh, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 78.00% complete, ETA 00:21:40
+# Fork: 1 of 3
+# Warmup Iteration   1: 47.446 us/op
+# Warmup Iteration   2: 36.425 us/op
+# Warmup Iteration   3: 36.606 us/op
+Iteration   1: 35.670 us/op
+Iteration   2: 35.422 us/op
+Iteration   3: 35.442 us/op
+
+# Run progress: 78.67% complete, ETA 00:21:00
+# Fork: 2 of 3
+# Warmup Iteration   1: 45.588 us/op
+# Warmup Iteration   2: 36.089 us/op
+# Warmup Iteration   3: 34.872 us/op
+Iteration   1: 35.047 us/op
+Iteration   2: 34.935 us/op
+Iteration   3: 35.266 us/op
+
+# Run progress: 79.33% complete, ETA 00:20:21
+# Fork: 3 of 3
+# Warmup Iteration   1: 44.097 us/op
+# Warmup Iteration   2: 34.142 us/op
+# Warmup Iteration   3: 35.676 us/op
+Iteration   1: 35.372 us/op
+Iteration   2: 35.903 us/op
+Iteration   3: 35.231 us/op
+
+
+Result "run":
+  35.366 ±(99.9%) 0.499 us/op [Average]
+  (min, avg, max) = (34.935, 35.366, 35.903), stdev = 0.297
+  CI (99.9%): [34.866, 35.865] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = true, searchString = a b c d e, unmatchedPolicy = EXACT)
+
+# Run progress: 80.00% complete, ETA 00:19:42
+# Fork: 1 of 3
+# Warmup Iteration   1: 469.637 us/op
+# Warmup Iteration   2: 369.322 us/op
+# Warmup Iteration   3: 383.153 us/op
+Iteration   1: 380.108 us/op
+Iteration   2: 372.272 us/op
+Iteration   3: 374.366 us/op
+
+# Run progress: 80.67% complete, ETA 00:19:02
+# Fork: 2 of 3
+# Warmup Iteration   1: 491.222 us/op
+# Warmup Iteration   2: 377.013 us/op
+# Warmup Iteration   3: 374.227 us/op
+Iteration   1: 381.676 us/op
+Iteration   2: 383.936 us/op
+Iteration   3: 376.556 us/op
+
+# Run progress: 81.33% complete, ETA 00:18:23
+# Fork: 3 of 3
+# Warmup Iteration   1: 458.395 us/op
+# Warmup Iteration   2: 379.243 us/op
+# Warmup Iteration   3: 370.129 us/op
+Iteration   1: 379.053 us/op
+Iteration   2: 369.616 us/op
+Iteration   3: 372.941 us/op
+
+
+Result "run":
+  376.725 ±(99.9%) 8.051 us/op [Average]
+  (min, avg, max) = (369.616, 376.725, 383.936), stdev = 4.791
+  CI (99.9%): [368.673, 384.776] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = true, searchString = a b c d e, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 82.00% complete, ETA 00:17:43
+# Fork: 1 of 3
+# Warmup Iteration   1: 466.403 us/op
+# Warmup Iteration   2: 367.311 us/op
+# Warmup Iteration   3: 365.668 us/op
+Iteration   1: 376.719 us/op
+Iteration   2: 363.002 us/op
+Iteration   3: 364.204 us/op
+
+# Run progress: 82.67% complete, ETA 00:17:04
+# Fork: 2 of 3
+# Warmup Iteration   1: 469.017 us/op
+# Warmup Iteration   2: 376.800 us/op
+# Warmup Iteration   3: 374.078 us/op
+Iteration   1: 378.914 us/op
+Iteration   2: 368.929 us/op
+Iteration   3: 374.322 us/op
+
+# Run progress: 83.33% complete, ETA 00:16:25
+# Fork: 3 of 3
+# Warmup Iteration   1: 475.244 us/op
+# Warmup Iteration   2: 371.586 us/op
+# Warmup Iteration   3: 373.028 us/op
+Iteration   1: 365.799 us/op
+Iteration   2: 377.438 us/op
+Iteration   3: 370.185 us/op
+
+
+Result "run":
+  371.057 ±(99.9%) 10.117 us/op [Average]
+  (min, avg, max) = (363.002, 371.057, 378.914), stdev = 6.020
+  CI (99.9%): [360.940, 381.174] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = true, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = EXACT)
+
+# Run progress: 84.00% complete, ETA 00:15:45
+# Fork: 1 of 3
+# Warmup Iteration   1: 729.979 us/op
+# Warmup Iteration   2: 582.360 us/op
+# Warmup Iteration   3: 553.236 us/op
+Iteration   1: 582.125 us/op
+Iteration   2: 562.492 us/op
+Iteration   3: 565.426 us/op
+
+# Run progress: 84.67% complete, ETA 00:15:06
+# Fork: 2 of 3
+# Warmup Iteration   1: 765.413 us/op
+# Warmup Iteration   2: 623.564 us/op
+# Warmup Iteration   3: 577.335 us/op
+Iteration   1: 575.491 us/op
+Iteration   2: 579.696 us/op
+Iteration   3: 577.529 us/op
+
+# Run progress: 85.33% complete, ETA 00:14:26
+# Fork: 3 of 3
+# Warmup Iteration   1: 755.578 us/op
+# Warmup Iteration   2: 598.603 us/op
+# Warmup Iteration   3: 580.672 us/op
+Iteration   1: 568.003 us/op
+Iteration   2: 568.550 us/op
+Iteration   3: 576.090 us/op
+
+
+Result "run":
+  572.822 ±(99.9%) 11.530 us/op [Average]
+  (min, avg, max) = (562.492, 572.822, 582.125), stdev = 6.861
+  CI (99.9%): [561.292, 584.353] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = true, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 86.00% complete, ETA 00:13:47
+# Fork: 1 of 3
+# Warmup Iteration   1: 735.672 us/op
+# Warmup Iteration   2: 579.301 us/op
+# Warmup Iteration   3: 553.620 us/op
+Iteration   1: 569.518 us/op
+Iteration   2: 573.014 us/op
+Iteration   3: 575.430 us/op
+
+# Run progress: 86.67% complete, ETA 00:13:08
+# Fork: 2 of 3
+# Warmup Iteration   1: 710.241 us/op
+# Warmup Iteration   2: 589.531 us/op
+# Warmup Iteration   3: 573.443 us/op
+Iteration   1: 569.327 us/op
+Iteration   2: 573.219 us/op
+Iteration   3: 575.186 us/op
+
+# Run progress: 87.33% complete, ETA 00:12:28
+# Fork: 3 of 3
+# Warmup Iteration   1: 745.106 us/op
+# Warmup Iteration   2: 595.141 us/op
+# Warmup Iteration   3: 580.422 us/op
+Iteration   1: 576.896 us/op
+Iteration   2: 575.086 us/op
+Iteration   3: 578.338 us/op
+
+
+Result "run":
+  574.002 ±(99.9%) 5.157 us/op [Average]
+  (min, avg, max) = (569.327, 574.002, 578.338), stdev = 3.069
+  CI (99.9%): [568.845, 579.159] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = false, searchString = wa sh, unmatchedPolicy = EXACT)
+
+# Run progress: 88.00% complete, ETA 00:11:49
+# Fork: 1 of 3
+# Warmup Iteration   1: 12.769 us/op
+# Warmup Iteration   2: 10.863 us/op
+# Warmup Iteration   3: 10.619 us/op
+Iteration   1: 10.753 us/op
+Iteration   2: 10.724 us/op
+Iteration   3: 10.747 us/op
+
+# Run progress: 88.67% complete, ETA 00:11:09
+# Fork: 2 of 3
+# Warmup Iteration   1: 12.439 us/op
+# Warmup Iteration   2: 11.076 us/op
+# Warmup Iteration   3: 10.589 us/op
+Iteration   1: 10.353 us/op
+Iteration   2: 10.393 us/op
+Iteration   3: 11.117 us/op
+
+# Run progress: 89.33% complete, ETA 00:10:30
+# Fork: 3 of 3
+# Warmup Iteration   1: 13.134 us/op
+# Warmup Iteration   2: 14.241 us/op
+# Warmup Iteration   3: 10.787 us/op
+Iteration   1: 10.797 us/op
+Iteration   2: 10.554 us/op
+Iteration   3: 10.171 us/op
+
+
+Result "run":
+  10.623 ±(99.9%) 0.480 us/op [Average]
+  (min, avg, max) = (10.171, 10.623, 11.117), stdev = 0.286
+  CI (99.9%): [10.144, 11.103] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = false, searchString = wa sh, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 90.00% complete, ETA 00:09:51
+# Fork: 1 of 3
+# Warmup Iteration   1: 11.675 us/op
+# Warmup Iteration   2: 10.127 us/op
+# Warmup Iteration   3: 9.700 us/op
+Iteration   1: 10.048 us/op
+Iteration   2: 10.383 us/op
+Iteration   3: 10.350 us/op
+
+# Run progress: 90.67% complete, ETA 00:09:11
+# Fork: 2 of 3
+# Warmup Iteration   1: 11.614 us/op
+# Warmup Iteration   2: 11.712 us/op
+# Warmup Iteration   3: 11.417 us/op
+Iteration   1: 11.726 us/op
+Iteration   2: 10.839 us/op
+Iteration   3: 10.606 us/op
+
+# Run progress: 91.33% complete, ETA 00:08:32
+# Fork: 3 of 3
+# Warmup Iteration   1: 11.448 us/op
+# Warmup Iteration   2: 10.156 us/op
+# Warmup Iteration   3: 9.802 us/op
+Iteration   1: 10.549 us/op
+Iteration   2: 9.932 us/op
+Iteration   3: 9.921 us/op
+
+
+Result "run":
+  10.484 ±(99.9%) 0.944 us/op [Average]
+  (min, avg, max) = (9.921, 10.484, 11.726), stdev = 0.562
+  CI (99.9%): [9.540, 11.428] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = false, searchString = a b c d e, unmatchedPolicy = EXACT)
+
+# Run progress: 92.00% complete, ETA 00:07:52
+# Fork: 1 of 3
+# Warmup Iteration   1: 660.203 us/op
+# Warmup Iteration   2: 548.735 us/op
+# Warmup Iteration   3: 503.947 us/op
+Iteration   1: 571.467 us/op
+Iteration   2: 568.469 us/op
+Iteration   3: 566.767 us/op
+
+# Run progress: 92.67% complete, ETA 00:07:13
+# Fork: 2 of 3
+# Warmup Iteration   1: 670.047 us/op
+# Warmup Iteration   2: 571.567 us/op
+# Warmup Iteration   3: 547.184 us/op
+Iteration   1: 563.519 us/op
+Iteration   2: 572.857 us/op
+Iteration   3: 565.541 us/op
+
+# Run progress: 93.33% complete, ETA 00:06:34
+# Fork: 3 of 3
+# Warmup Iteration   1: 775.821 us/op
+# Warmup Iteration   2: 613.418 us/op
+# Warmup Iteration   3: 575.436 us/op
+Iteration   1: 553.145 us/op
+Iteration   2: 524.819 us/op
+Iteration   3: 517.287 us/op
+
+
+Result "run":
+  555.986 ±(99.9%) 34.752 us/op [Average]
+  (min, avg, max) = (517.287, 555.986, 572.857), stdev = 20.681
+  CI (99.9%): [521.233, 590.738] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = false, searchString = a b c d e, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 94.00% complete, ETA 00:05:54
+# Fork: 1 of 3
+# Warmup Iteration   1: 650.676 us/op
+# Warmup Iteration   2: 564.179 us/op
+# Warmup Iteration   3: 509.579 us/op
+Iteration   1: 507.216 us/op
+Iteration   2: 509.610 us/op
+Iteration   3: 517.984 us/op
+
+# Run progress: 94.67% complete, ETA 00:05:15
+# Fork: 2 of 3
+# Warmup Iteration   1: 658.746 us/op
+# Warmup Iteration   2: 572.981 us/op
+# Warmup Iteration   3: 551.976 us/op
+Iteration   1: 521.730 us/op
+Iteration   2: 518.706 us/op
+Iteration   3: 551.531 us/op
+
+# Run progress: 95.33% complete, ETA 00:04:35
+# Fork: 3 of 3
+# Warmup Iteration   1: 650.894 us/op
+# Warmup Iteration   2: 549.841 us/op
+# Warmup Iteration   3: 553.636 us/op
+Iteration   1: 549.223 us/op
+Iteration   2: 550.869 us/op
+Iteration   3: 547.558 us/op
+
+
+Result "run":
+  530.492 ±(99.9%) 31.717 us/op [Average]
+  (min, avg, max) = (507.216, 530.492, 551.531), stdev = 18.874
+  CI (99.9%): [498.775, 562.209] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = false, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = EXACT)
+
+# Run progress: 96.00% complete, ETA 00:03:56
+# Fork: 1 of 3
+# Warmup Iteration   1: 1616.439 us/op
+# Warmup Iteration   2: 1353.903 us/op
+# Warmup Iteration   3: 1352.247 us/op
+Iteration   1: 1444.297 us/op
+Iteration   2: 1455.736 us/op
+Iteration   3: 1377.732 us/op
+
+# Run progress: 96.67% complete, ETA 00:03:17
+# Fork: 2 of 3
+# Warmup Iteration   1: 1660.743 us/op
+# Warmup Iteration   2: 1466.396 us/op
+# Warmup Iteration   3: 1447.569 us/op
+Iteration   1: 1453.978 us/op
+Iteration   2: 1473.121 us/op
+Iteration   3: 1398.176 us/op
+
+# Run progress: 97.33% complete, ETA 00:02:37
+# Fork: 3 of 3
+# Warmup Iteration   1: 1678.125 us/op
+# Warmup Iteration   2: 1470.615 us/op
+# Warmup Iteration   3: 1482.638 us/op
+Iteration   1: 1460.895 us/op
+Iteration   2: 1455.611 us/op
+Iteration   3: 1453.211 us/op
+
+
+Result "run":
+  1441.417 ±(99.9%) 53.213 us/op [Average]
+  (min, avg, max) = (1377.732, 1441.417, 1473.121), stdev = 31.666
+  CI (99.9%): [1388.205, 1494.630] (assumes normal distribution)
+
+
+# JMH 1.15 (released 47 days ago)
+# VM version: JDK 1.8.0_111, VM 25.111-b14
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xms4g -Xmx4g
+# Warmup: 3 iterations, 3 s each
+# Measurement: 3 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.zigurs.karlis.utils.search.bench.LargeIntersections.run
+# Parameters: (accumulationPolicy = INTERSECTION, fjEnabled = false, searchString = a b c d e g h i l m n p r s u v y, unmatchedPolicy = BACKTRACKING)
+
+# Run progress: 98.00% complete, ETA 00:01:58
+# Fork: 1 of 3
+# Warmup Iteration   1: 1742.109 us/op
+# Warmup Iteration   2: 1487.954 us/op
+# Warmup Iteration   3: 1365.797 us/op
+Iteration   1: 1470.147 us/op
+Iteration   2: 1480.296 us/op
+Iteration   3: 1368.280 us/op
+
+# Run progress: 98.67% complete, ETA 00:01:18
+# Fork: 2 of 3
+# Warmup Iteration   1: 1559.454 us/op
+# Warmup Iteration   2: 1371.983 us/op
+# Warmup Iteration   3: 1322.489 us/op
+Iteration   1: 1320.977 us/op
+Iteration   2: 1333.853 us/op
+Iteration   3: 1359.457 us/op
+
+# Run progress: 99.33% complete, ETA 00:00:39
+# Fork: 3 of 3
+# Warmup Iteration   1: 1704.576 us/op
+# Warmup Iteration   2: 1473.375 us/op
+# Warmup Iteration   3: 1472.973 us/op
+Iteration   1: 1444.060 us/op
+Iteration   2: 1345.815 us/op
+Iteration   3: 1366.750 us/op
+
+
+Result "run":
+  1387.737 ±(99.9%) 101.641 us/op [Average]
+  (min, avg, max) = (1320.977, 1387.737, 1480.296), stdev = 60.485
+  CI (99.9%): [1286.096, 1489.378] (assumes normal distribution)
+
+
+# Run complete. Total time: 01:38:30
+
+Benchmark                         (accumulationPolicy)  (fjEnabled)                     (searchString)  (unmatchedPolicy)   Mode  Cnt          Score           Error  Units
+AddDeleteOperations.addAndRemove                   N/A          N/A                                N/A                N/A  thrpt    9      25552.302 ±       772.552  ops/s
+MixedOperations.rw                                 N/A          N/A                                N/A                N/A  thrpt    9     305808.437 ±     30188.657  ops/s
+MixedOperations.rw:addAndRemove                    N/A          N/A                                N/A                N/A  thrpt    9     102767.059 ±      8984.098  ops/s
+MixedOperations.rw:read                            N/A          N/A                                N/A                N/A  thrpt    9     203041.379 ±     21284.263  ops/s
+ReadOnlyOperations.run                           UNION          N/A                                                 EXACT  thrpt    9  310519454.500 ±  18693307.178  ops/s
+ReadOnlyOperations.run                           UNION          N/A                                          BACKTRACKING  thrpt    9  256419860.280 ± 132937321.813  ops/s
+ReadOnlyOperations.run                           UNION          N/A                       nosuchstring              EXACT  thrpt    9     855902.081 ±     15435.912  ops/s
+ReadOnlyOperations.run                           UNION          N/A                       nosuchstring       BACKTRACKING  thrpt    9     116248.931 ±      6253.501  ops/s
+ReadOnlyOperations.run                           UNION          N/A                         washington              EXACT  thrpt    9     418971.357 ±     19050.316  ops/s
+ReadOnlyOperations.run                           UNION          N/A                         washington       BACKTRACKING  thrpt    9     411151.157 ±     12676.587  ops/s
+ReadOnlyOperations.run                           UNION          N/A                              wa sh              EXACT  thrpt    9      73631.137 ±      5622.742  ops/s
+ReadOnlyOperations.run                           UNION          N/A                              wa sh       BACKTRACKING  thrpt    9      74393.055 ±      2839.762  ops/s
+ReadOnlyOperations.run                           UNION          N/A                          a b c d e              EXACT  thrpt    9       1735.425 ±        90.469  ops/s
+ReadOnlyOperations.run                           UNION          N/A                          a b c d e       BACKTRACKING  thrpt    9       1756.790 ±        36.020  ops/s
+ReadOnlyOperations.run                           UNION          N/A  a b c d e g h i l m n p r s u v y              EXACT  thrpt    9        583.572 ±        38.508  ops/s
+ReadOnlyOperations.run                           UNION          N/A  a b c d e g h i l m n p r s u v y       BACKTRACKING  thrpt    9        578.153 ±        53.051  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                                                 EXACT  thrpt    9  282841934.177 ±  31500114.647  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                                          BACKTRACKING  thrpt    9  285977884.264 ±  15287007.485  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                       nosuchstring              EXACT  thrpt    9     796881.465 ±     51072.128  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                       nosuchstring       BACKTRACKING  thrpt    9     103783.181 ±      5963.427  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                         washington              EXACT  thrpt    9     419778.553 ±     18677.368  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                         washington       BACKTRACKING  thrpt    9     401478.009 ±     14153.231  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                              wa sh              EXACT  thrpt    9      99920.700 ±      3230.674  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                              wa sh       BACKTRACKING  thrpt    9      94946.259 ±      4742.914  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                          a b c d e              EXACT  thrpt    9       1801.599 ±        48.116  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A                          a b c d e       BACKTRACKING  thrpt    9       1811.393 ±        71.105  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A  a b c d e g h i l m n p r s u v y              EXACT  thrpt    9        663.437 ±        16.179  ops/s
+ReadOnlyOperations.run                    INTERSECTION          N/A  a b c d e g h i l m n p r s u v y       BACKTRACKING  thrpt    9        681.447 ±        13.746  ops/s
+LargeIntersections.run                           UNION         true                              wa sh              EXACT   avgt    9         51.506 ±         1.203  us/op
+LargeIntersections.run                           UNION         true                              wa sh       BACKTRACKING   avgt    9         50.490 ±         1.824  us/op
+LargeIntersections.run                           UNION         true                          a b c d e              EXACT   avgt    9        749.376 ±        28.796  us/op
+LargeIntersections.run                           UNION         true                          a b c d e       BACKTRACKING   avgt    9        766.617 ±        24.625  us/op
+LargeIntersections.run                           UNION         true  a b c d e g h i l m n p r s u v y              EXACT   avgt    9       1268.352 ±        31.700  us/op
+LargeIntersections.run                           UNION         true  a b c d e g h i l m n p r s u v y       BACKTRACKING   avgt    9       1289.468 ±        24.910  us/op
+LargeIntersections.run                           UNION        false                              wa sh              EXACT   avgt    9         12.962 ±         0.468  us/op
+LargeIntersections.run                           UNION        false                              wa sh       BACKTRACKING   avgt    9         12.661 ±         0.856  us/op
+LargeIntersections.run                           UNION        false                          a b c d e              EXACT   avgt    9        577.869 ±        25.885  us/op
+LargeIntersections.run                           UNION        false                          a b c d e       BACKTRACKING   avgt    9        574.751 ±        23.962  us/op
+LargeIntersections.run                           UNION        false  a b c d e g h i l m n p r s u v y              EXACT   avgt    9       1663.767 ±        85.273  us/op
+LargeIntersections.run                           UNION        false  a b c d e g h i l m n p r s u v y       BACKTRACKING   avgt    9       1697.219 ±        74.189  us/op
+LargeIntersections.run                    INTERSECTION         true                              wa sh              EXACT   avgt    9         35.670 ±         1.326  us/op
+LargeIntersections.run                    INTERSECTION         true                              wa sh       BACKTRACKING   avgt    9         35.366 ±         0.499  us/op
+LargeIntersections.run                    INTERSECTION         true                          a b c d e              EXACT   avgt    9        376.725 ±         8.051  us/op
+LargeIntersections.run                    INTERSECTION         true                          a b c d e       BACKTRACKING   avgt    9        371.057 ±        10.117  us/op
+LargeIntersections.run                    INTERSECTION         true  a b c d e g h i l m n p r s u v y              EXACT   avgt    9        572.822 ±        11.530  us/op
+LargeIntersections.run                    INTERSECTION         true  a b c d e g h i l m n p r s u v y       BACKTRACKING   avgt    9        574.002 ±         5.157  us/op
+LargeIntersections.run                    INTERSECTION        false                              wa sh              EXACT   avgt    9         10.623 ±         0.480  us/op
+LargeIntersections.run                    INTERSECTION        false                              wa sh       BACKTRACKING   avgt    9         10.484 ±         0.944  us/op
+LargeIntersections.run                    INTERSECTION        false                          a b c d e              EXACT   avgt    9        555.986 ±        34.752  us/op
+LargeIntersections.run                    INTERSECTION        false                          a b c d e       BACKTRACKING   avgt    9        530.492 ±        31.717  us/op
+LargeIntersections.run                    INTERSECTION        false  a b c d e g h i l m n p r s u v y              EXACT   avgt    9       1441.417 ±        53.213  us/op
+LargeIntersections.run                    INTERSECTION        false  a b c d e g h i l m n p r s u v y       BACKTRACKING   avgt    9       1387.737 ±       101.641  us/op
+
+Benchmark result is saved to 20161117_1.7-SNAPSHOT-t1.csv
