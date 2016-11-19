@@ -1,7 +1,7 @@
 package com.zigurs.karlis.utils.search.bench;
 
 import com.zigurs.karlis.utils.search.QuickSearch;
-import com.zigurs.karlis.utils.search.QuickSearch.AccumulationPolicy;
+import com.zigurs.karlis.utils.search.QuickSearch.MergePolicy;
 import com.zigurs.karlis.utils.search.QuickSearch.UnmatchedPolicy;
 import org.openjdk.jmh.annotations.*;
 
@@ -25,9 +25,9 @@ public class LargeIntersections {
     @State(Scope.Benchmark)
     public static class SearchWrapper {
         @Param({"UNION", "INTERSECTION"})
-        private AccumulationPolicy accumulationPolicy;
+        private MergePolicy mergePolicy;
 
-        @Param({"EXACT", "BACKTRACKING"})
+        @Param({"IGNORE", "BACKTRACKING"})
         private UnmatchedPolicy unmatchedPolicy;
 
         @Param({"wa sh", "a b c d e", "a b c d e g h i l m n p r s u v y"})
@@ -45,14 +45,14 @@ public class LargeIntersections {
         public void setup() {
             if (fjEnabled)
                 this.searchInstance = QuickSearch.builder()
-                        .withAccumulationPolicy(accumulationPolicy)
+                        .withMergePolicy(mergePolicy)
                         .withUnmatchedPolicy(unmatchedPolicy)
-                        .withForkJoinProcessing()
+                        .withParallelProcessing()
                         .build();
 
             else
                 this.searchInstance = QuickSearch.builder()
-                        .withAccumulationPolicy(accumulationPolicy)
+                        .withMergePolicy(mergePolicy)
                         .withUnmatchedPolicy(unmatchedPolicy)
                         .build();
 
