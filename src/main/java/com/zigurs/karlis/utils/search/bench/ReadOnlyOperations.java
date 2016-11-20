@@ -9,18 +9,12 @@ import java.util.concurrent.TimeUnit;
 
 import static com.zigurs.karlis.utils.search.bench.CommonParams.USA_STATES;
 
-@Threads(1)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @Fork(value = CommonParams.FORKS, jvmArgsAppend = {"-XX:+UseParallelGC", "-Xms4g", "-Xmx4g"})
 @Warmup(iterations = CommonParams.WARMUP_ITERATIONS, time = CommonParams.WARMUP_TIME, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
 public class ReadOnlyOperations {
-
-    @Benchmark
-    public int run(SearchWrapper wrapper) {
-        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
-    }
 
     @State(Scope.Benchmark)
     public static class SearchWrapper {
@@ -33,6 +27,12 @@ public class ReadOnlyOperations {
         @Param({"", "nosuchstring", "washington", "wa sh", "a b c d e", "a b c d e g h i l m n p r s u v y"})
         private String searchString;
 
+        @Param({"true", "false"})
+        private boolean enableParallel = false;
+
+        @Param({"true", "false"})
+        private boolean enableInterning = false;
+
         private QuickSearch<String> searchInstance;
 
         @Setup
@@ -40,6 +40,8 @@ public class ReadOnlyOperations {
             this.searchInstance = QuickSearch.builder()
                     .withMergePolicy(mergePolicy)
                     .withUnmatchedPolicy(unmatchedPolicy)
+                    .withParallelProcessing(enableParallel)
+                    .withKeywordsInterning(enableInterning)
                     .build();
 
             /* Populate search dataset */
@@ -52,5 +54,17 @@ public class ReadOnlyOperations {
                     throw new IllegalStateException("Failed to add item");
             }
         }
+    }
+
+    @Threads(1)
+    @Benchmark
+    public int run_st(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
+    }
+
+    @Threads(8)
+    @Benchmark
+    public int run_mt(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
     }
 }

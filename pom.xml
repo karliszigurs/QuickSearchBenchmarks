@@ -17,12 +17,12 @@
         <dependency>
             <groupId>com.zigurs.karlis.utils.search</groupId>
             <artifactId>QuickSearch</artifactId>
-            <version>1.7-SNAPSHOT</version>
+            <version>1.8-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
+            <artifactId>jmh-core</artifactId>w
             <version>${jmh.version}</version>
         </dependency>
 

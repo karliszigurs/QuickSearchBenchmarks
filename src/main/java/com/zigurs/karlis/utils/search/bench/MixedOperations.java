@@ -13,22 +13,6 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
 public class MixedOperations {
 
-    @Group("rw")
-    @GroupThreads(1)
-    @Benchmark
-    public boolean addAndRemove(SearchWrapper wrapper, Blackhole blackhole) {
-        blackhole.consume(wrapper.searchInstance.addItem("item", "one two three"));
-        wrapper.searchInstance.removeItem("item");
-        return true;
-    }
-
-    @Group("rw")
-    @GroupThreads(1)
-    @Benchmark
-    public boolean read(SearchWrapper wrapper) {
-        return wrapper.searchInstance.findItems("item", 10).isEmpty();
-    }
-
     @State(Scope.Benchmark)
     public static class SearchWrapper {
         private QuickSearch<String> searchInstance;
@@ -37,5 +21,37 @@ public class MixedOperations {
         public void setup() {
             this.searchInstance = QuickSearch.builder().build();
         }
+    }
+
+    @Group("st")
+    @GroupThreads(1)
+    @Benchmark
+    public boolean addAndRemove_st(SearchWrapper wrapper, Blackhole blackhole) {
+        blackhole.consume(wrapper.searchInstance.addItem("item", "one two three"));
+        wrapper.searchInstance.removeItem("item");
+        return true;
+    }
+
+    @Group("st")
+    @GroupThreads(1)
+    @Benchmark
+    public boolean read_st(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems("item", 10).isEmpty();
+    }
+
+    @Group("mt")
+    @GroupThreads(1)
+    @Benchmark
+    public boolean addAndRemove_mt(SearchWrapper wrapper, Blackhole blackhole) {
+        blackhole.consume(wrapper.searchInstance.addItem("item", "one two three"));
+        wrapper.searchInstance.removeItem("item");
+        return true;
+    }
+
+    @Group("mt")
+    @GroupThreads(7)
+    @Benchmark
+    public boolean read_mt(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems("item", 10).isEmpty();
     }
 }

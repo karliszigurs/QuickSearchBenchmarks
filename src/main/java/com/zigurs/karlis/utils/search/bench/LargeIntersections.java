@@ -9,18 +9,12 @@ import java.util.concurrent.TimeUnit;
 
 import static com.zigurs.karlis.utils.search.bench.CommonParams.USA_STATES;
 
-@Threads(1)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Fork(value = CommonParams.FORKS, jvmArgsAppend = {"-XX:+UseParallelGC", "-Xms4g", "-Xmx4g"})
 @Warmup(iterations = CommonParams.WARMUP_ITERATIONS, time = CommonParams.WARMUP_TIME, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = CommonParams.BENCHMARK_ITERATIONS, time = CommonParams.BENCHMARK_TIME, timeUnit = TimeUnit.SECONDS)
 public class LargeIntersections {
-
-    @Benchmark
-    public int run(SearchWrapper wrapper) {
-        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
-    }
 
     @State(Scope.Benchmark)
     public static class SearchWrapper {
@@ -34,7 +28,11 @@ public class LargeIntersections {
         private String searchString;
 
         @Param({"true", "false"})
-        private boolean fjEnabled = false;
+        private boolean parallelEnabled = false;
+
+        @Param({"true", "false"})
+        private boolean interningEnabled = false;
+
 
         private QuickSearch<String> searchInstance;
 
@@ -43,18 +41,12 @@ public class LargeIntersections {
 
         @Setup
         public void setup() {
-            if (fjEnabled)
-                this.searchInstance = QuickSearch.builder()
-                        .withMergePolicy(mergePolicy)
-                        .withUnmatchedPolicy(unmatchedPolicy)
-                        .withParallelProcessing()
-                        .build();
-
-            else
-                this.searchInstance = QuickSearch.builder()
-                        .withMergePolicy(mergePolicy)
-                        .withUnmatchedPolicy(unmatchedPolicy)
-                        .build();
+            this.searchInstance = QuickSearch.builder()
+                    .withMergePolicy(mergePolicy)
+                    .withUnmatchedPolicy(unmatchedPolicy)
+                    .withParallelProcessing(parallelEnabled)
+                    .withKeywordsInterning(interningEnabled)
+                    .build();
 
             /* Populate search dataset */
             for (int i = 0; i < 1000; i++) {
@@ -66,5 +58,17 @@ public class LargeIntersections {
                     throw new IllegalStateException("Failed to add item");
             }
         }
+    }
+
+    @Threads(1)
+    @Benchmark
+    public int run_st(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
+    }
+
+    @Threads(8)
+    @Benchmark
+    public int run_mt(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
     }
 }

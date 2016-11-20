@@ -5,7 +5,6 @@ import org.openjdk.jmh.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
-@Threads(1)
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @Fork(value = CommonParams.FORKS, jvmArgsAppend = {"-XX:+UseParallelGC", "-Xms4g", "-Xmx4g"})
@@ -25,8 +24,22 @@ public class AddDeleteOperations {
         }
     }
 
+    @Threads(1)
     @Benchmark
-    public void addAndRemove(SearchWrapper wrapper) {
+    public void addAndRemove_st(SearchWrapper wrapper) {
+        String item = String.format("Item-%d", wrapper.counter);
+        String keywords = String.format("cat%d dog%d", wrapper.counter, wrapper.counter++);
+
+        if (!wrapper.searchInstance.addItem(item, keywords))
+            throw new IllegalStateException("Couldn't add item");
+
+        // Purposefully create new String instance
+        wrapper.searchInstance.removeItem(new String(item));
+    }
+
+    @Threads(8)
+    @Benchmark
+    public void addAndRemove_mt(SearchWrapper wrapper) {
         String item = String.format("Item-%d", wrapper.counter);
         String keywords = String.format("cat%d dog%d", wrapper.counter, wrapper.counter++);
 
