@@ -26,7 +26,7 @@ public class MixedOperations {
     @Group("st")
     @GroupThreads(1)
     @Benchmark
-    public boolean addAndRemove_st(SearchWrapper wrapper, Blackhole blackhole) {
+    public boolean addAndRemove_single(SearchWrapper wrapper, Blackhole blackhole) {
         blackhole.consume(wrapper.searchInstance.addItem("item", "one two three"));
         wrapper.searchInstance.removeItem("item");
         return true;
@@ -35,14 +35,14 @@ public class MixedOperations {
     @Group("st")
     @GroupThreads(1)
     @Benchmark
-    public boolean read_st(SearchWrapper wrapper) {
+    public boolean read_single(SearchWrapper wrapper) {
         return wrapper.searchInstance.findItems("item", 10).isEmpty();
     }
 
     @Group("mt")
     @GroupThreads(1)
     @Benchmark
-    public boolean addAndRemove_mt(SearchWrapper wrapper, Blackhole blackhole) {
+    public boolean addAndRemove_multi(SearchWrapper wrapper, Blackhole blackhole) {
         blackhole.consume(wrapper.searchInstance.addItem("item", "one two three"));
         wrapper.searchInstance.removeItem("item");
         return true;
@@ -51,7 +51,7 @@ public class MixedOperations {
     @Group("mt")
     @GroupThreads(7)
     @Benchmark
-    public boolean read_mt(SearchWrapper wrapper) {
+    public boolean read_multi(SearchWrapper wrapper) {
         return wrapper.searchInstance.findItems("item", 10).isEmpty();
     }
 }

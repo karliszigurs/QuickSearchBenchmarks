@@ -16,17 +16,18 @@ public class AddDeleteOperations {
     public static class SearchWrapper {
         private QuickSearch<String> searchInstance;
 
+        // Intentionally unsafe in multithread scenario
         private int counter;
 
         @Setup
         public void setup() {
-            this.searchInstance = QuickSearch.builder().build();
+            searchInstance = QuickSearch.builder().build();
         }
     }
 
     @Threads(1)
     @Benchmark
-    public void addAndRemove_st(SearchWrapper wrapper) {
+    public void single(SearchWrapper wrapper) {
         String item = String.format("Item-%d", wrapper.counter);
         String keywords = String.format("cat%d dog%d", wrapper.counter, wrapper.counter++);
 
@@ -39,7 +40,7 @@ public class AddDeleteOperations {
 
     @Threads(8)
     @Benchmark
-    public void addAndRemove_mt(SearchWrapper wrapper) {
+    public void multi(SearchWrapper wrapper) {
         String item = String.format("Item-%d", wrapper.counter);
         String keywords = String.format("cat%d dog%d", wrapper.counter, wrapper.counter++);
 

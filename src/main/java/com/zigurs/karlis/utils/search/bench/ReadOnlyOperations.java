@@ -7,6 +7,12 @@ import org.openjdk.jmh.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.zigurs.karlis.utils.search.bench.CommonParams.BACKTRACKING;
+import static com.zigurs.karlis.utils.search.bench.CommonParams.FALSE;
+import static com.zigurs.karlis.utils.search.bench.CommonParams.IGNORE;
+import static com.zigurs.karlis.utils.search.bench.CommonParams.INTERSECTION;
+import static com.zigurs.karlis.utils.search.bench.CommonParams.TRUE;
+import static com.zigurs.karlis.utils.search.bench.CommonParams.UNION;
 import static com.zigurs.karlis.utils.search.bench.CommonParams.USA_STATES;
 
 @BenchmarkMode(Mode.Throughput)
@@ -18,30 +24,30 @@ public class ReadOnlyOperations {
 
     @State(Scope.Benchmark)
     public static class SearchWrapper {
-        @Param({"UNION", "INTERSECTION"})
-        private MergePolicy mergePolicy;
+        @Param({UNION, INTERSECTION})
+        private MergePolicy merge;
 
-        @Param({"IGNORE", "BACKTRACKING"})
-        private UnmatchedPolicy unmatchedPolicy;
+        @Param({IGNORE, BACKTRACKING})
+        private UnmatchedPolicy unmatched;
 
         @Param({"", "nosuchstring", "washington", "wa sh", "a b c d e", "a b c d e g h i l m n p r s u v y"})
-        private String searchString;
+        private String query;
 
-        @Param({"true", "false"})
-        private boolean enableParallel = false;
+        @Param({TRUE, FALSE})
+        private boolean parallel;
 
-        @Param({"true", "false"})
-        private boolean enableInterning = false;
+        @Param({TRUE, FALSE})
+        private boolean intern;
 
         private QuickSearch<String> searchInstance;
 
         @Setup
         public void setup() {
-            this.searchInstance = QuickSearch.builder()
-                    .withMergePolicy(mergePolicy)
-                    .withUnmatchedPolicy(unmatchedPolicy)
-                    .withParallelProcessing(enableParallel)
-                    .withKeywordsInterning(enableInterning)
+            searchInstance = QuickSearch.builder()
+                    .withMergePolicy(merge)
+                    .withUnmatchedPolicy(unmatched)
+                    .withParallelProcessing(parallel)
+                    .withKeywordsInterning(intern)
                     .build();
 
             /* Populate search dataset */
@@ -58,13 +64,13 @@ public class ReadOnlyOperations {
 
     @Threads(1)
     @Benchmark
-    public int run_st(SearchWrapper wrapper) {
-        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
+    public int single(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems(wrapper.query, 10).size();
     }
 
     @Threads(8)
     @Benchmark
-    public int run_mt(SearchWrapper wrapper) {
-        return wrapper.searchInstance.findItems(wrapper.searchString, 10).size();
+    public int multi(SearchWrapper wrapper) {
+        return wrapper.searchInstance.findItems(wrapper.query, 10).size();
     }
 }

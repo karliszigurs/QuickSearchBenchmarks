@@ -34,17 +34,17 @@ public class SetOperations {
         public ImmutableSet<String> immutableSet;
 
         @Param({"HASH", "IMMUTABLE"})
-        public WhichOne targetInstance;
+        public WhichOne type;
 
         @Param({"1", "10", "100", "1000", "10000", "100000", "1000000"})
-        public int targetSize;
+        public int size;
 
         public Random random;
 
         @Setup
         public void setup() {
             random = new Random();
-            hashSet = createHashSet(targetSize);
+            hashSet = createHashSet(size);
             immutableSet = ImmutableSet.fromCollection(hashSet);
         }
 
@@ -56,7 +56,7 @@ public class SetOperations {
         }
 
         public boolean contains() {
-            switch (targetInstance) {
+            switch (type) {
                 case HASH:
                     return hashSet.contains(randomItem());
                 case IMMUTABLE:
@@ -66,18 +66,18 @@ public class SetOperations {
         }
 
         public boolean remove() {
-            switch (targetInstance) {
+            switch (type) {
                 case HASH:
                     return hashSet.remove(randomItem());
                 case IMMUTABLE:
-                    immutableSet.createInstanceByRemoving(randomItem());
+                    immutableSet = immutableSet.createInstanceByRemoving(randomItem());
                     return true;
             }
             throw new IllegalStateException("uhm");
         }
 
         public boolean add() {
-            switch (targetInstance) {
+            switch (type) {
                 case HASH:
                     return hashSet.add(randomItem());
                 case IMMUTABLE:
@@ -89,43 +89,43 @@ public class SetOperations {
 
         private String randomItem() {
             /* 50/50 present or missing */
-            return String.format("Item-%d", random.nextInt(targetSize * 2));
+            return String.format("Item-%d", random.nextInt(size * 2));
         }
     }
 
     @Threads(1)
     @Benchmark
-    public boolean contains_st(SetWrapper wrapper) {
+    public boolean contains_single(SetWrapper wrapper) {
         return wrapper.contains();
     }
 
     @Threads(8)
     @Benchmark
-    public boolean contains_mt(SetWrapper wrapper) {
+    public boolean contains_multi(SetWrapper wrapper) {
         return wrapper.contains();
     }
 
     @Threads(1)
     @Benchmark
-    public boolean add_st(SetWrapper wrapper) {
+    public boolean add_single(SetWrapper wrapper) {
         return wrapper.add();
     }
 
     @Threads(8)
     @Benchmark
-    public boolean add_mt(SetWrapper wrapper) {
+    public boolean add_multi(SetWrapper wrapper) {
         return wrapper.add();
     }
 
     @Threads(1)
     @Benchmark
-    public boolean remove_st(SetWrapper wrapper) {
+    public boolean remove_single(SetWrapper wrapper) {
         return wrapper.remove();
     }
 
     @Threads(8)
     @Benchmark
-    public boolean remove_mt(SetWrapper wrapper) {
+    public boolean remove_multi(SetWrapper wrapper) {
         return wrapper.remove();
     }
 }

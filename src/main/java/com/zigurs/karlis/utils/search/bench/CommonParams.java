@@ -68,4 +68,11 @@ public class CommonParams {
             {"WI", "Wisconsin", "Madison", "May 29, 1848"},
             {"WY", "Wyoming", "Cheyenne", "July 10, 1890"}
     };
+
+    public static final String INTERSECTION = "INTERSECTION";
+    public static final String UNION = "UNION";
+    public static final String BACKTRACKING = "BACKTRACKING";
+    public static final String IGNORE = "IGNORE";
+    public static final String FALSE = "false";
+    public static final String TRUE = "true";
 }
