@@ -1,4 +1,3 @@
-nohup: ignoring input
 # JMH 1.15 (released 52 days ago)
 # VM version: JDK 1.8.0_111, VM 25.111-b14
 # VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
@@ -13800,5 +13799,3 @@ LargeIntersections.run_st                          N/A               N/A        
 LargeIntersections.run_st                          N/A               N/A               false   INTERSECTION              false                          a b c d e       BACKTRACKING   avgt    9         357.624 ±       14.362  us/op
 LargeIntersections.run_st                          N/A               N/A               false   INTERSECTION              false  a b c d e g h i l m n p r s u v y             IGNORE   avgt    9         948.575 ±       34.946  us/op
 LargeIntersections.run_st                          N/A               N/A               false   INTERSECTION              false  a b c d e g h i l m n p r s u v y       BACKTRACKING   avgt    9         915.745 ±       55.141  us/op
-
-Benchmark result is saved to 20161122_1.8-SNAPSHOT.csv

@@ -1,4 +1,3 @@
-nohup: ignoring input
 # JMH 1.15 (released 36 days ago)
 # VM version: JDK 1.8.0_111, VM 25.111-b14
 # VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
@@ -8762,5 +8761,3 @@ ReadOnlyOperations.run                    INTERSECTION           -1             
 ReadOnlyOperations.run                    INTERSECTION           -1                          a b c d e       BACKTRACKING  thrpt   25      13442.607 ±      247.694  ops/s
 ReadOnlyOperations.run                    INTERSECTION           -1  a b c d e g h i l m n p r s u v y              EXACT  thrpt   25      10208.152 ±      242.761  ops/s
 ReadOnlyOperations.run                    INTERSECTION           -1  a b c d e g h i l m n p r s u v y       BACKTRACKING  thrpt   25      10426.501 ±      250.953  ops/s
-
-Benchmark result is saved to 20161105_1.6-1t.csv

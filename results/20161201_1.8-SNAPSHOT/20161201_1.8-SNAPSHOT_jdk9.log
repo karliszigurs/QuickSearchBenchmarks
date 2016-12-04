@@ -1,4 +1,3 @@
-nohup: ignoring input
 # JMH 1.17 (released 8 days ago)
 # VM version: JDK 9-ea, VM 9-ea+146
 # VM invoker: /home/karliszigurs/jdk9/jdk-9/bin/java
@@ -17748,5 +17747,3 @@ SetOperations.remove_st                            N/A               N/A        
 SetOperations.remove_st                            N/A               N/A                 N/A            N/A                N/A                                N/A         IMMUTABLE         10000                N/A   avgt    9           5.488 ±         0.133  us/op
 SetOperations.remove_st                            N/A               N/A                 N/A            N/A                N/A                                N/A         IMMUTABLE        100000                N/A   avgt    9          48.510 ±         1.501  us/op
 SetOperations.remove_st                            N/A               N/A                 N/A            N/A                N/A                                N/A         IMMUTABLE       1000000                N/A   avgt    9         476.406 ±        15.931  us/op
-
-Benchmark result is saved to 20161201_1.8-SNAPSHOT_jdk9.csv

@@ -2388,5 +2388,3 @@ LargeIntersections.run                  false   INTERSECTION                    
 LargeIntersections.run                  false   INTERSECTION                          a b c d e       BACKTRACKING   avgt    9        440.865 ±       18.478  us/op
 LargeIntersections.run                  false   INTERSECTION  a b c d e g h i l m n p r s u v y             IGNORE   avgt    9       1180.541 ±       83.224  us/op
 LargeIntersections.run                  false   INTERSECTION  a b c d e g h i l m n p r s u v y       BACKTRACKING   avgt    9       1157.286 ±       29.573  us/op
-
-Benchmark result is saved to 20161120_1.7-SNAPSHOT-1t.csv
