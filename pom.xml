@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.zigurs.karlis.utils.search</groupId>
             <artifactId>QuickSearch</artifactId>
-            <version>1.8-SNAPSHOT</version>
+            <version>1.8</version>
         </dependency>
 
         <dependency>
@@ -35,7 +35,7 @@
     </dependencies>
 
     <properties>
-        <jmh.version>1.15</jmh.version>
+        <jmh.version>1.17.4</jmh.version>
         <uberjar.name>benchmarks</uberjar.name>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
